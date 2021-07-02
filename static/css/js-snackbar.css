@@ -54,11 +54,27 @@
     box-sizing: border-box;
     border-radius: 12px;
     color: #eee;
-    font-size: 14pt;
+    font-size: 14.5pt;
     background-color: #262626;
     vertical-align: bottom;
     margin: 0 10px;
     flex-grow: 1;
+}
+
+@media screen and (max-width: 1680px) {
+
+		.js-snackbar {
+			font-size: 11pt;
+		}
+
+}
+
+@media screen and (max-width: 480px) {
+
+	    .js-snackbar {
+			font-size: 10pt;
+		}
+
 }
 
 .js-snackbar__close,

@@ -883,7 +883,7 @@
 		-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
 		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
 		transition: opacity 1s ease, transform 1s ease;
-		padding: 4.5em 3em 3em 3em ;
+		padding: 4.5em 3.5em 3.5em 3.5em ;
 		background: #ffffff;
 		border-radius: 12px;
 		cursor: default;

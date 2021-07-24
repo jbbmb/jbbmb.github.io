@@ -848,6 +848,7 @@ body.is-ie #wrapper {
     user-select: none;
     color: #000000;
     opacity: 0.8;
+    transition: var(--transition);
 }
 
 .js-snackbar__close:hover {

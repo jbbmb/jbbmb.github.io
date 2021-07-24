@@ -216,7 +216,6 @@ body.is-preload:after {
     }
     #main {
         background: #282828 !important;
-        box-shadow: 0 0 2em #000000 !important;
     }
     #main .avatar img {
         box-shadow: 0 0 0 1em #282828 !important;
@@ -503,8 +502,16 @@ ul.icons li a:before {
     position: relative;
     text-align: center;
     width: 28em;
-    box-shadow: 0 0 1em #121212;
     z-index: 1;
+    opacity: 0.95;
+    box-shadow: 0 0 0.5em #000000;
+    transition: var(--transition);
+}
+
+#main:hover {
+    opacity: 1;
+    box-shadow: 0 0 1em #000000;
+    transition: var(--transition);
 }
 
 #main .avatar {

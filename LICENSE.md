@@ -1,0 +1,38 @@
+## Copyright © 2021 João de Macedo Borges
+### All Rights Reserved where applicable.
+
+This software includes original work made free and public on HTML5UP.
+"Identity Template" and all of its components, used and/or re-used for this
+software, belong to their respective copyright owners.
+
+This software includes original work made free and public on Codepen.
+The copyright for the 3D parallax effect and all of its components, used and/or
+re-used for this software, belong to Louis Chenais.
+
+This software includes original work made free and public on Icons8, via their
+Open-Source Projects clause. Iconography copyrights fully belong to Icons8 LLC,
+and where applicable, CDN77.
+
+This software includes original work made free and public by Michael Mickelson,
+via an MIT license. The copyright for js-snackbar and all of its components,
+used and/or re-used for this software, belong to their respective owners.
+
+Any remaining conditions not described here fall under the CCA 3.0 license.
+
+Permission is hereby DENIED to any person obtaining a copy of this software
+and associated documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+THE ABOVE COPYRIGHT NOTICE AND THIS PERMISSION NOTICE SHALL BE INCLUDED IN ALL
+COPIES OR SUBSTANTIAL PORTIONS OF THE SOFTWARE.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -1,0 +1,6 @@
+# robots.txt for http://jbbmb.com/
+
+User-agent: *
+Disallow:
+
+Sitemap: https://jbbmb.com/sitemap.xml

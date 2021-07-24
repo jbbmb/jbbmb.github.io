@@ -4,7 +4,7 @@
 }
 
 :root {
-    --transition: all 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
@@ -490,10 +490,6 @@ ul.icons li a:before {
     -webkit-transform: rotateX(0deg);
     -ms-transform: rotateX(0deg);
     transform: rotateX(0deg);
-    -moz-transition: opacity 1s ease, -moz-transform 1s ease;
-    -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-    -ms-transition: opacity 1s ease, -ms-transform 1s ease;
-    transition: opacity 1s ease, transform 1s ease;
     padding: 4em 3em 3em 3em;
     background: #ffffff;
     border-radius: 12px;
@@ -613,10 +609,10 @@ ul.icons li a:before {
 }
 
 body.is-preload #main {
-    -moz-transform: rotateX(15deg);
-    -webkit-transform: rotateX(15deg);
-    -ms-transform: rotateX(15deg);
-    transform: rotateX(15deg);
+    -moz-transform: rotateX(20deg);
+    -webkit-transform: rotateX(20deg);
+    -ms-transform: rotateX(20deg);
+    transform: rotateX(20deg);
     opacity: 0;
 }
 

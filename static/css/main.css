@@ -226,7 +226,16 @@ body.is-preload:after {
     }
     .signature,
     .icon {
-        filter: invert(100%);
+        filter: invert(100%) !important;
+        transition: var(--transition);
+    }
+    .icon:hover {
+        filter: invert(100%) drop-shadow(0 0 1.5em #000000) !important;
+        transition: var(--transition);
+    }
+    .icon:active {
+        filter: invert(100%) drop-shadow(0 0 1em #000000) !important;
+        transition: var(--transition);
     }
     .js-snackbar {
         color: #ffffff !important;
@@ -393,6 +402,7 @@ hr {
 
 .icon:hover {
     opacity: 0.9;
+    filter: drop-shadow(0 0 1.5em #000000);
     transform: scale(1.4) translateZ(0px);
     transition: var(--transition);
     z-index: 3;
@@ -400,6 +410,7 @@ hr {
 
 .icon:active {
     opacity: 1;
+    filter: drop-shadow(0 0 1em #000000);
     transform: scale(1.2) translateZ(0px);
     transition: var(--transition);
     z-index: 4;
@@ -499,13 +510,12 @@ ul.icons li a:before {
     text-align: center;
     width: 28em;
     z-index: 1;
-    opacity: 0.95;
     box-shadow: 0 0 0.5em #000000;
     transition: var(--transition);
 }
 
 #main:hover {
-    opacity: 1;
+    z-index: 2;
     box-shadow: 0 0 1em #000000;
     transition: var(--transition);
 }

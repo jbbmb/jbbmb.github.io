@@ -11,29 +11,37 @@ window.addEventListener('load', function() {
     gtag('config', 'G-TMBJC0HLP7');
 
 
-    /** Greets the visitor */
-    var data = [
-            [0, 5, "Good night, welcome to my corner. Use the options below to learn more about me."],
-            [6, 11, "Good morning, welcome to my corner. Use the options below to learn more about me."],
-            [12, 19, "Good afternoon, welcome to my corner. Use the options below to learn more about me."],
-            [20, 23, "Good evening, welcome to my corner. Use the options below to learn more about me."]
-        ],
-        hr = new Date().getHours();
-    for (var i = 0; i < data.length; i++) {
-        if (hr >= data[i][0] && hr <= data[i][1]) {
-            document.getElementById('greeting').innerHTML = (data[i][2]);
-            console.log("Opening Web Inspector I see...");
-            break;
-        }
-    }
-
-
     /** Blocks right-click context menu */
     document.addEventListener('contextmenu', event => event.preventDefault());
 
 
     /** Removes preload tag */
     document.body.className = document.body.className.replace(/\bis-preload\b/, '');
+
+
+    /** Activates TextScramble */
+    const phrases = [
+        getGreeting(),
+        'I\'m a male Homo Sapiens specimen',
+        'born early April of \'97 in Portugal',
+        'who is passionate about technology',
+        'and many other things you can explore',
+        'by using the many options below.',
+        'Thank You so much for visiting!'
+    ];
+
+    const el = document.querySelector('#greeting');
+    const fx = new TextScramble(el);
+
+    let counter = 0;
+    const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+            setTimeout(next, 2000)
+        });
+        counter = (counter + 1) % phrases.length;
+    };
+
+    next();
 
 
     /* Animates card with parallax... */
@@ -75,7 +83,7 @@ function gateway(node) {
     switch (node) {
         case "contact":
             SnackBar({
-                message: "No e-mail app set up? No problem.<br>Send it to hello@jbbmb.com later.",
+                message: "No e-mail app set up? No problem!<br>Send it to hello@jbbmb.com later.",
                 status: "info",
                 position: "br",
                 fixed: true,
@@ -128,7 +136,83 @@ function gateway(node) {
     }
 }
 
+
+/** Loads the selected route */
 function reload(node) {
     const next = ("https://jbbmb.com#").concat(node);
     window.location.href = next;
+}
+
+
+/** Greets the visitor */
+function getGreeting() {
+    var goodX = [
+            [0, 5, "Good night and welcome to my corner."],
+            [6, 11, "Good morning and welcome to my corner."],
+            [12, 19, "Good afternoon and welcome to my corner."],
+            [20, 23, "Good evening and welcome to my corner."]
+        ],
+        hr = new Date().getHours();
+    for (var i = 0; i < goodX.length; i++) {
+        if (hr >= goodX[i][0] && hr <= goodX[i][1]) {
+            console.log("Opening Web Inspector I see...");
+            return (goodX[i][2]);
+        }
+    }
+}
+
+
+/** TextScramble */
+class TextScramble {
+    constructor(el) {
+        this.el = el
+        this.chars = '*'
+        this.update = this.update.bind(this)
+    }
+    setText(newText) {
+        const oldText = this.el.innerText
+        const length = Math.max(oldText.length, newText.length)
+        const promise = new Promise((resolve) => this.resolve = resolve)
+        this.queue = []
+        for (let i = 0; i < length; i++) {
+            const from = oldText[i] || ''
+            const to = newText[i] || ''
+            const start = Math.floor(Math.random() * 40)
+            const end = start + Math.floor(Math.random() * 40)
+            this.queue.push({ from, to, start, end })
+        }
+        cancelAnimationFrame(this.frameRequest)
+        this.frame = 0
+        this.update()
+        return promise
+    }
+    update() {
+        let output = ''
+        let complete = 0
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i]
+            if (this.frame >= end) {
+                complete++
+                output += to
+            } else if (this.frame >= start) {
+                if (!char || Math.random() < 0.28) {
+                    char = this.randomChar()
+                    this.queue[i].char = char
+                }
+                output += `<span class="dud">${char}</span>`
+            } else {
+                output += from
+            }
+        }
+        this.el.innerHTML = output
+        if (complete === this.queue.length) {
+            this.resolve()
+        } else {
+            this.frameRequest = requestAnimationFrame(this.update)
+            this.frame++
+        }
+    }
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)]
+    }
 }

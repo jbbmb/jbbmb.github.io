@@ -207,7 +207,12 @@ body.is-preload:after {
 }
 
 #greeting {
+    min-height: 5em;
     opacity: 0.8;
+}
+
+.dud {
+    color: #757575;
 }
 
 @media (prefers-color-scheme: dark) {

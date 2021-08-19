@@ -1,15 +1,23 @@
 /* Basic */
 
-	body:after {
-		display: none;
-	}
+body:after {
+    display: none;
+}
+
 
 /* Main */
 
-	#main {
-		-moz-transform: none !important;
-		-webkit-transform: none !important;
-		-ms-transform: none !important;
-		transform: none !important;
-		opacity: 1 !important;
-	}
+#main {
+    -moz-transform: none !important;
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+
+/* JS warning */
+
+#greeting::after {
+    content: 'Hey there, you have JavaScript off... Please enable it to fully interact with my website!';
+}

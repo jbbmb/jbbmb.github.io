@@ -4,6 +4,10 @@ body:after {
     display: none;
 }
 
+footer {
+    opacity: 25%;
+}
+
 
 /* Main */
 
@@ -19,5 +23,5 @@ body:after {
 /* JS warning */
 
 #greeting::after {
-    content: 'Hey there, you have JavaScript off... Please enable it to fully interact with my website!';
+    content: 'Enable JavaScript to fully use this website!';
 }

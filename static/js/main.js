@@ -22,8 +22,9 @@ window.addEventListener('load', function() {
     /** Activates TextScramble */
     const phrases = [
         getGreeting(),
-        'I\'m a male Homo Sapiens specimen',
-        'born early April of \'97 in Portugal',
+        'Welcome to the virtual corner of',
+        'this male Homo Sapiens specimen',
+        'born early April of 1997, in Portugal,',
         'who is passionate about technology',
         'and many other things you can explore',
         'by using the many options below.',
@@ -147,10 +148,10 @@ function reload(node) {
 /** Greets the visitor */
 function getGreeting() {
     var goodX = [
-            [0, 5, "Good night and welcome to my corner."],
-            [6, 11, "Good morning and welcome to my corner."],
-            [12, 19, "Good afternoon and welcome to my corner."],
-            [20, 23, "Good evening and welcome to my corner."]
+            [0, 5, "Good night..."],
+            [6, 11, "Good morning..."],
+            [12, 19, "Good afternoon..."],
+            [20, 23, "Good evening..."]
         ],
         hr = new Date().getHours();
     for (var i = 0; i < goodX.length; i++) {
@@ -166,7 +167,7 @@ function getGreeting() {
 class TextScramble {
     constructor(el) {
         this.el = el
-        this.chars = '*'
+        this.chars = '01'
         this.update = this.update.bind(this)
     }
     setText(newText) {

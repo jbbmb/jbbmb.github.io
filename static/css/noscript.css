@@ -1,11 +1,11 @@
 /* Basic */
 
 body:after {
-    display: none;
+    display: none !important;
 }
 
 footer {
-    opacity: 25%;
+    opacity: 25% !important;
 }
 
 
@@ -17,11 +17,17 @@ footer {
     -ms-transform: none !important;
     transform: none !important;
     opacity: 1 !important;
+    pointer-events: none !important;
+}
+
+#main .avatar:before {
+    background: #757575 !important;
+    opacity: 25% !important;
 }
 
 
 /* JS warning */
 
 #greeting::after {
-    content: 'Enable JavaScript to fully use this website!';
+    content: 'Enable JavaScript to fully use this website!' !important;
 }

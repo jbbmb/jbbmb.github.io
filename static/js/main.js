@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
         dataLayer.push(arguments);
     }
     gtag('js', new Date());
-    gtag('config', 'G-TMBJC0HLP7');
+    gtag('config', 'G-FMEDZDBVNJ');
 
 
     /** Blocks right-click context menu */
@@ -84,7 +84,7 @@ function gateway(node) {
     switch (node) {
         case "contact":
             SnackBar({
-                message: "No e-mail app set up? No problem!<br>Send it to hello@jbbmb.com later.",
+                message: "Composing e-mail to hello@jbbmb.com...",
                 status: "info",
                 position: "br",
                 fixed: true,

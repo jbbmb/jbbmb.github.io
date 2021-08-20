@@ -248,25 +248,17 @@ select,
 textarea {
     color: #000000;
     font-family: 'Inter', sans-serif;
-    font-size: 14.5pt;
+    font-size: 13pt;
     line-height: 1.75;
-}
-
-@media screen and (max-width: 1680px) {
-    body,
-    input,
-    select,
-    textarea {
-        font-size: 12.5pt;
-    }
 }
 
 @media screen and (max-width: 490px) {
     body,
     input,
     select,
-    textarea {
-        font-size: 10.5pt;
+    textarea,
+    .js-snackbar {
+        font-size: 11pt !important;
     }
 }
 
@@ -274,8 +266,10 @@ textarea {
     body,
     input,
     select,
-    textarea {
-        font-size: 9pt;
+    textarea,
+    .js-snackbar {
+        font-size: 9pt !important;
+        line-height: 1.5 !important;
     }
 }
 
@@ -389,7 +383,7 @@ hr {
     border-bottom: none;
     display: block;
     margin: 0 auto;
-    height: 70%;
+    height: 75%;
     opacity: 0.8;
     transform: translateZ(0px);
     transition: var(--transition);
@@ -475,12 +469,6 @@ ul.icons li a:before {
     font-size: 1.85rem;
     text-align: center;
     text-indent: 0;
-}
-
-@media screen and (max-width: 480px) {
-    ul.icons li a:before {
-        font-size: 1.5rem;
-    }
 }
 
 
@@ -674,14 +662,15 @@ body.is-preload #main {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    -moz-perspective: 2500px;
-    -webkit-perspective: 2500px;
-    -ms-perspective: 2500px;
-    perspective: 2500px;
+    -moz-perspective: 2000px;
+    -webkit-perspective: 2000px;
+    -ms-perspective: 2000px;
+    perspective: 2000px;
     position: relative;
     min-height: 100%;
     padding: 1.5em;
     z-index: 0;
+    transform: translate(0, 1%);
 }
 
 #wrapper:before {
@@ -759,7 +748,8 @@ body.is-ie #wrapper {
     box-sizing: border-box;
     border-radius: 12px;
     color: #000000;
-    font-size: 14.5pt;
+    font-size: 13pt;
+    line-height: 1.75;
     background-color: #cccccc;
     vertical-align: bottom;
     margin: 0 10px;
@@ -772,18 +762,6 @@ body.is-ie #wrapper {
     -webkit-user-drag: none;
     -ms-user-drag: none;
     user-drag: none;
-}
-
-@media screen and (max-width: 1680px) {
-    .js-snackbar {
-        font-size: 12.5pt;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .js-snackbar {
-        font-size: 10.5pt;
-    }
 }
 
 .js-snackbar__close,

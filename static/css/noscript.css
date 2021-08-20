@@ -29,5 +29,5 @@ footer {
 /* JS warning */
 
 #greeting::after {
-    content: 'Enable JavaScript to fully use this website!' !important;
+    content: 'Enable JavaScript to use this website!' !important;
 }

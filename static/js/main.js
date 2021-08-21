@@ -2,47 +2,46 @@
 /** Initializes variables */
 
 const phrases = [
-    getGreeting(),
-    'Welcome to the virtual corner of',
-    'this male Homo Sapiens specimen',
-    'born early April of 1997, in Portugal,',
-    'who is passionate about technology',
-    'and many other things you can explore',
-    'by using the many options below.',
-    'Thank You so much for visiting!'
-];
-
-const contacts = [{
-        type: "item",
-        label: "Mail",
-        callback: () => {
-            SnackBar({
-                message: "Composing e-mail to hello@jbbmb.com...",
-                status: "info",
-                position: "br",
-                fixed: true,
-                timeout: false,
-                dismissible: true
-            });
-            window.location.href = "mailto:hello@jbbmb.com";
-        }
-    },
-    {
-        type: "item",
-        label: "Skype",
-        callback: () => {
-            window.location.href = "https://join.skype.com/invite/JaDhKR5KYErt";
-        }
-    },
-    {
-        type: "item",
-        label: "Telegram",
-        callback: () => {
-            window.location.href = "https://telegram.me/jbbmb";
-        }
-    },
-];
-const context = new Context(".contexted", contacts);
+        getGreeting(),
+        'Welcome to the virtual corner of',
+        'this male Homo Sapiens specimen',
+        'born early April of 1997, in Portugal,',
+        'who is passionate about technology',
+        'and many other things you can explore',
+        'by using the many options below.',
+        'Thank You so much for visiting!'
+    ],
+    contacts = [{
+            type: "item",
+            label: "Mail",
+            callback: () => {
+                SnackBar({
+                    message: "Composing e-mail to hello@jbbmb.com...",
+                    status: "info",
+                    position: "br",
+                    fixed: true,
+                    timeout: false,
+                    dismissible: true
+                });
+                window.location.href = "mailto:hello@jbbmb.com";
+            }
+        },
+        {
+            type: "item",
+            label: "Skype",
+            callback: () => {
+                window.location.href = "https://join.skype.com/invite/JaDhKR5KYErt";
+            }
+        },
+        {
+            type: "item",
+            label: "Telegram",
+            callback: () => {
+                window.location.href = "https://telegram.me/jbbmb";
+            }
+        },
+    ],
+    context = new Context(".contexted", contacts);
 
 
 /** Triggers on session load */
@@ -81,8 +80,8 @@ window.addEventListener('load', function() {
 
     /** Activates TextScramble */
 
-    const el = this.document.querySelector('#greeting');
-    const fx = new TextScramble(el);
+    const el = this.document.querySelector('#greeting'),
+        fx = new TextScramble(el);
     let counter = 0;
     const next = () => {
         fx.setText(phrases[counter]).then(() => {
@@ -95,30 +94,47 @@ window.addEventListener('load', function() {
 
     /* Animates card with parallax... */
 
-    const imgContainer = this.document.querySelector('#main'),
-        imgContainerHeight = imgContainer.getBoundingClientRect().height * 0.5 + imgContainer.getBoundingClientRect().top,
+    const imgContainer = this.document.querySelector('#main');
+    var imgContainerHeight = imgContainer.getBoundingClientRect().height * 0.5 + imgContainer.getBoundingClientRect().top,
         imgContainerWidth = imgContainer.getBoundingClientRect().width * 0.5 + imgContainer.getBoundingClientRect().left;
 
+    window.addEventListener('resize', function(event) {
+        imgContainerHeight = imgContainer.getBoundingClientRect().height * 0.5 + imgContainer.getBoundingClientRect().top;
+        imgContainerWidth = imgContainer.getBoundingClientRect().width * 0.5 + imgContainer.getBoundingClientRect().left;
+    }, true);
+
     function getSchwifty(el, xPos, yPos) {
-        el.style.setProperty('transform', `rotateX(${(yPos - imgContainerHeight) / 25}deg) rotateY(${(xPos - imgContainerWidth) / 25}deg) translateZ(-2px)`);
+        el.style.setProperty('transform', `rotateX(${(yPos - imgContainerHeight) / 20}deg) rotateY(${(xPos - imgContainerWidth) / 15}deg) translateZ(-2px)`);
     }
 
 
     /** ... on desktop */
 
-    this.document.addEventListener('mousemove', function(e) {
-        getSchwifty(imgContainer, e.clientX, e.clientY)
+    this.document.querySelector('#main').addEventListener('mousemove', function(e) {
+        getSchwifty(imgContainer, e.clientX, e.clientY);
+    });
+
+    this.document.querySelector('.modern_context_js_outer').addEventListener('mousemove', function(e) {
+        getSchwifty(imgContainer, e.clientX, e.clientY);
+    });
+
+    this.document.querySelector('#main').addEventListener('mouseout', function(e) {
+        getSchwifty(imgContainer, imgContainerWidth, imgContainerHeight);
     });
 
 
     /** ... and on mobile */
 
-    this.document.addEventListener('touchmove', function(e) {
+    this.document.querySelector('#main').addEventListener('touchmove', function(e) {
         e.preventDefault();
         const touch = e.targetTouches[0]
         if (touch) {
-            getSchwifty(imgContainer, touch.pageX, touch.pageY)
+            getSchwifty(imgContainer, touch.pageX, touch.pageY);
         }
+    });
+
+    this.document.addEventListener('touchend', function(e) {
+        getSchwifty(imgContainer, imgContainerWidth, imgContainerHeight);
     });
 
 });

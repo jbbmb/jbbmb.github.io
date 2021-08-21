@@ -1,88 +1,21 @@
-/** Triggers on session load */
-window.addEventListener('load', function() {
+"use strict";
+/** Initializes variables */
 
-    /** Ping Analytics */
-    window.dataLayer = window.dataLayer || [];
+const phrases = [
+    getGreeting(),
+    'Welcome to the virtual corner of',
+    'this male Homo Sapiens specimen',
+    'born early April of 1997, in Portugal,',
+    'who is passionate about technology',
+    'and many other things you can explore',
+    'by using the many options below.',
+    'Thank You so much for visiting!'
+];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-FMEDZDBVNJ');
-
-
-    /** Blocks right-click context menu */
-    document.addEventListener('contextmenu', event => event.preventDefault());
-
-
-    /** Removes preload tag */
-    document.body.className = document.body.className.replace(/\bis-preload\b/, '');
-
-
-    /** Activates TextScramble */
-    const phrases = [
-        getGreeting(),
-        'Welcome to the virtual corner of',
-        'this male Homo Sapiens specimen',
-        'born early April of 1997, in Portugal,',
-        'who is passionate about technology',
-        'and many other things you can explore',
-        'by using the many options below.',
-        'Thank You so much for visiting!'
-    ];
-
-    const el = document.querySelector('#greeting');
-    const fx = new TextScramble(el);
-
-    let counter = 0;
-    const next = () => {
-        fx.setText(phrases[counter]).then(() => {
-            setTimeout(next, 2000)
-        });
-        counter = (counter + 1) % phrases.length;
-    };
-
-    next();
-
-
-    /* Animates card with parallax... */
-    const imgContainer = document.querySelector('#main'),
-        imgContainerHeight = imgContainer.getBoundingClientRect().height * 0.5 + imgContainer.getBoundingClientRect().top,
-        imgContainerWidth = imgContainer.getBoundingClientRect().width * 0.5 + imgContainer.getBoundingClientRect().left;
-
-    function getSchwifty(el, xPos, yPos) {
-        el.style.setProperty('transform', `rotateX(${(yPos - imgContainerHeight) / 25}deg) rotateY(${(xPos - imgContainerWidth) / 25}deg) translateZ(-2px)`);
-    }
-
-    /** ... on desktop */
-    document.addEventListener('mousemove', function(e) {
-        getSchwifty(imgContainer, e.clientX, e.clientY)
-    });
-
-    /** ... and on mobile */
-    document.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-
-        const touch = e.targetTouches[0]
-
-        if (touch) {
-            getSchwifty(imgContainer, touch.pageX, touch.pageY)
-        }
-    });
-
-
-    /** Evaluates URL parameters */
-    const node = window.location.href.split("#")[1];
-    if (node != null) {
-        gateway(node);
-    }
-});
-
-
-/** Redirects the user accordingly */
-function gateway(node) {
-    switch (node) {
-        case "contact":
+const contacts = [{
+        type: "item",
+        label: "Mail",
+        callback: () => {
             SnackBar({
                 message: "Composing e-mail to hello@jbbmb.com...",
                 status: "info",
@@ -92,7 +25,109 @@ function gateway(node) {
                 dismissible: true
             });
             window.location.href = "mailto:hello@jbbmb.com";
-            break;
+        }
+    },
+    {
+        type: "item",
+        label: "Skype",
+        callback: () => {
+            window.location.href = "https://join.skype.com/invite/JaDhKR5KYErt";
+        }
+    },
+    {
+        type: "item",
+        label: "Telegram",
+        callback: () => {
+            window.location.href = "https://telegram.me/jbbmb";
+        }
+    },
+];
+const context = new Context(".contexted", contacts);
+
+
+/** Triggers on session load */
+
+window.addEventListener('load', function() {
+
+
+    /** Pings Analytics */
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-FMEDZDBVNJ');
+
+
+    /** Evaluates URL parameters */
+
+    const node = window.location.href.split("#")[1];
+    if (node != null) {
+        gateway(node);
+    }
+
+
+    /** Blocks native context menu */
+
+    this.document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+    /** Removes preload tag */
+
+    this.document.body.className = this.document.body.className.replace(/\bis-preload\b/, '');
+
+
+    /** Activates TextScramble */
+
+    const el = this.document.querySelector('#greeting');
+    const fx = new TextScramble(el);
+    let counter = 0;
+    const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+            setTimeout(next, 2000)
+        });
+        counter = (counter + 1) % phrases.length;
+    };
+    next();
+
+
+    /* Animates card with parallax... */
+
+    const imgContainer = this.document.querySelector('#main'),
+        imgContainerHeight = imgContainer.getBoundingClientRect().height * 0.5 + imgContainer.getBoundingClientRect().top,
+        imgContainerWidth = imgContainer.getBoundingClientRect().width * 0.5 + imgContainer.getBoundingClientRect().left;
+
+    function getSchwifty(el, xPos, yPos) {
+        el.style.setProperty('transform', `rotateX(${(yPos - imgContainerHeight) / 25}deg) rotateY(${(xPos - imgContainerWidth) / 25}deg) translateZ(-2px)`);
+    }
+
+
+    /** ... on desktop */
+
+    this.document.addEventListener('mousemove', function(e) {
+        getSchwifty(imgContainer, e.clientX, e.clientY)
+    });
+
+
+    /** ... and on mobile */
+
+    this.document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        const touch = e.targetTouches[0]
+        if (touch) {
+            getSchwifty(imgContainer, touch.pageX, touch.pageY)
+        }
+    });
+
+});
+
+
+/** Redirects the user accordingly */
+
+function gateway(node) {
+    switch (node) {
         case "pay":
             window.location.href = "https://revolut.me/jbbmb";
             break;
@@ -126,7 +161,7 @@ function gateway(node) {
             break;
         default:
             SnackBar({
-                message: "Sorry, the requested page was not found!",
+                message: "Sorry, an internal error has occurred!",
                 status: "error",
                 position: "br",
                 fixed: true,
@@ -139,6 +174,7 @@ function gateway(node) {
 
 
 /** Loads the selected route */
+
 function reload(node) {
     const next = ("https://jbbmb.com#").concat(node);
     window.location.href = next;
@@ -146,6 +182,7 @@ function reload(node) {
 
 
 /** Greets the visitor */
+
 function getGreeting() {
     var goodX = [
             [0, 5, "Good night..."],
@@ -164,6 +201,7 @@ function getGreeting() {
 
 
 /** TextScramble */
+
 class TextScramble {
     constructor(el) {
         this.el = el

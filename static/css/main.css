@@ -1,3 +1,5 @@
+/* Basic */
+
 @font-face {
     font-family: 'Inter';
     src: url("https://jbbmb.com/static/css/fonts/Inter-Regular.woff2") format("woff2"), url("https://jbbmb.com/static/css/fonts/Inter-Regular.woff") format("woff");
@@ -6,9 +8,6 @@
 :root {
     --transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-
-/* Basics */
 
 html,
 body,
@@ -225,7 +224,8 @@ body.is-preload:after {
     #main .avatar img {
         box-shadow: 0 0 0 1em #282828 !important;
     }
-    .js-snackbar__close,
+    .js-snackbar *,
+    .modern_context_js_outer .context_item,
     #greeting {
         color: #ffffff !important;
     }
@@ -233,9 +233,12 @@ body.is-preload:after {
     .icon {
         filter: invert(100%) !important;
     }
-    .js-snackbar {
-        color: #ffffff !important;
-        background-color: #545454 !important;
+    .js-snackbar,
+    .modern_context_js_outer {
+        background: rgba(51, 51, 51, 0.7) !important;
+    }
+    .modern_context_js_outer .context_item::before {
+        background: #ffffff !important;
     }
 }
 
@@ -257,7 +260,8 @@ textarea {
     input,
     select,
     textarea,
-    .js-snackbar {
+    .js-snackbar,
+    .modern_context_js_outer .context_item {
         font-size: 11pt !important;
     }
 }
@@ -267,7 +271,8 @@ textarea {
     input,
     select,
     textarea,
-    .js-snackbar {
+    .js-snackbar,
+    .modern_context_js_outer .context_item {
         font-size: 9pt !important;
         line-height: 1.5 !important;
     }
@@ -395,6 +400,15 @@ hr {
     transform: scale(1.4) translateZ(0px);
     transition: var(--transition);
     z-index: 3;
+}
+
+.contexted {
+    transition: var(--transition);
+}
+
+.contexted.hovered {
+    transform: scale(1.2) translateZ(0px);
+    transition: var(--transition);
 }
 
 .icon:active {
@@ -698,8 +712,8 @@ body.is-ie #wrapper {
     flex-direction: column;
     align-items: flex-end;
     max-width: 100%;
-    z-index: 999;
-    overflow: hidden;
+    z-index: 10;
+    overflow: visible;
 }
 
 .js-snackbar-container--top-left {
@@ -732,7 +746,6 @@ body.is-ie #wrapper {
 }
 
 .js-snackbar__wrapper {
-    overflow: hidden;
     height: auto;
     margin: 0;
     transition: var(--transition);
@@ -747,12 +760,16 @@ body.is-ie #wrapper {
     box-sizing: border-box;
     border-radius: 12px;
     color: #000000;
-    font-size: 13pt;
     line-height: 1.75;
-    background-color: #cccccc;
+    font-size: 13pt;
+    background: rgba(255, 255, 255, 0.7);
     vertical-align: bottom;
     margin: 0 10px;
     flex-grow: 1;
+    -moz-backdrop-filter: blur(0.5em);
+    -webkit-backdrop-filter: blur(0.5em);
+    -ms-backdrop-filter: blur(0.5em);
+    backdrop-filter: blur(0.5em);
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -818,6 +835,10 @@ body.is-ie #wrapper {
     cursor: pointer;
 }
 
+.js-snackbar--show {
+    box-shadow: 0.1em 0.1em 0.75em rgba(0, 0, 0, 0.3);
+}
+
 .js-snackbar__close {
     cursor: pointer;
     display: flex;
@@ -841,5 +862,82 @@ body.is-ie #wrapper {
 .js-snackbar__close:active {
     opacity: 1;
     transform: scale(1.2) translateZ(0px);
+    transition: var(--transition);
+}
+
+
+/** Context Menu */
+
+.modern_context_js_outer {
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    border-radius: 12px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+    padding: 0.5em 0;
+    display: none;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: default;
+    z-index: 9;
+    -moz-backdrop-filter: blur(0.5em);
+    -webkit-backdrop-filter: blur(0.5em);
+    -ms-backdrop-filter: blur(0.5em);
+    backdrop-filter: blur(0.5em);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-drag: none;
+    -webkit-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
+}
+
+.modern_context_js_outer hr {
+    width: calc(100% - 2em);
+    height: 0.1em;
+    background: #333333;
+    border: none;
+    margin: 0.25em 1em;
+    opacity: 0.5;
+}
+
+.modern_context_js_outer .context_item {
+    width: 100%;
+    padding: 0.5em 1em;
+    color: #000000;
+    line-height: 1.75;
+    font-size: 13pt;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modern_context_js_outer .context_item::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: 0.1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #333333;
+    opacity: 0;
+}
+
+.modern_context_js_outer .context_item.hover::before {
+    opacity: 0.15;
+}
+
+.modern_context_js_outer .context_item.hover:hover {
+    cursor: pointer;
+}
+
+.modern_context_js_outer .context_item .context_item_inner {
+    transition: var(--transition);
+}
+
+.modern_context_js_outer .context_item:active .context_item_inner {
+    transform: scale(0.9) translateZ(0px);
     transition: var(--transition);
 }

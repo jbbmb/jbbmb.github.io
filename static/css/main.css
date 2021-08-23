@@ -203,7 +203,7 @@ body.is-preload:after {
 }
 
 #greeting {
-    min-height: 6em;
+    min-height: 8em;
     opacity: 0.8;
 }
 
@@ -417,12 +417,9 @@ hr {
 }
 
 .icon:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     display: inline-block;
     font-style: normal;
     font-variant: normal;
-    text-rendering: auto;
     line-height: inherit;
     font-weight: 400;
 }
@@ -465,12 +462,9 @@ ul.icons li span {
 }
 
 ul.icons li a:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     display: inline-block;
     font-style: normal;
     font-variant: normal;
-    text-rendering: auto;
     line-height: inherit;
     font-weight: 400;
     position: absolute;
@@ -487,6 +481,10 @@ ul.icons li a:before {
 /* Main */
 
 #main {
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
     -moz-transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     -ms-transform-origin: 50% 50%;
@@ -524,8 +522,8 @@ ul.icons li a:before {
     display: block;
     margin: 0 auto;
     border-radius: 100%;
-    box-shadow: 0 0 0 1em #ffffff;
-    width: 41%;
+    box-shadow: 0 0 0 1.5em #ffffff;
+    width: 40%;
     z-index: 1;
 }
 
@@ -608,7 +606,8 @@ ul.icons li a:before {
 #main .signature {
     display: block;
     margin: 0 auto;
-    width: 99%;
+    margin-bottom: 0.5em;
+    width: 100%;
     opacity: 0.8;
 }
 
@@ -621,6 +620,7 @@ body.is-preload #main {
 }
 
 #identity {
+    transform-style: preserve-3d;
     z-index: 2;
 }
 
@@ -637,6 +637,7 @@ body.is-preload #main {
     color: rgba(255, 255, 255, 0.75);
     cursor: default;
     text-align: center;
+    transform-style: preserve-3d;
 }
 
 #footer .copyright {
@@ -838,7 +839,13 @@ body.is-ie #wrapper {
 }
 
 .js-snackbar--show {
-    box-shadow: 0.1em 0.1em 0.75em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+
+.js-snackbar--show:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11);
+    transition: var(--transition);
 }
 
 .js-snackbar__close {
@@ -896,7 +903,8 @@ body.is-ie #wrapper {
 }
 
 .modern_context_js_outer:hover {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11);
+    transition: var(--transition);
 }
 
 .modern_context_js_outer hr {

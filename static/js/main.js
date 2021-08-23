@@ -86,51 +86,51 @@ window.addEventListener('load', function() {
 
     /* Animates card with parallax... */
 
-    const imgContainer = this.document.querySelector('#main');
-    var imgContainerHeight = imgContainer.getBoundingClientRect().height * 0.5 + imgContainer.getBoundingClientRect().top,
-        imgContainerWidth = imgContainer.getBoundingClientRect().width * 0.5 + imgContainer.getBoundingClientRect().left;
+    const cardContainer = this.document.querySelector('#main');
+    var cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.5 + cardContainer.getBoundingClientRect().top,
+        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
 
-    window.addEventListener('resize', function(event) {
-        imgContainerHeight = imgContainer.getBoundingClientRect().height * 0.5 + imgContainer.getBoundingClientRect().top;
-        imgContainerWidth = imgContainer.getBoundingClientRect().width * 0.5 + imgContainer.getBoundingClientRect().left;
+    window.addEventListener('resize', function() {
+        cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.5 + cardContainer.getBoundingClientRect().top;
+        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
     }, true);
 
-    function getSchwifty(el, xPos, yPos) {
-        el.style.setProperty('transform', `rotateX(${(yPos - imgContainerHeight) / 20}deg) rotateY(${(xPos - imgContainerWidth) / 15}deg) translateZ(-2px)`);
+    function getSchwifty(el, positionX, positionY) {
+        el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 20}deg) rotateY(${(positionX - cardContainerWidth) / 15}deg) translateZ(-2px)`);
     }
 
 
     /** ... on desktop */
 
     this.document.querySelector('#main').addEventListener('mousemove', function(e) {
-        getSchwifty(imgContainer, e.clientX, e.clientY);
+        getSchwifty(cardContainer, e.clientX, e.clientY);
     });
 
     this.document.querySelector('.modern_context_js_outer').addEventListener('mousemove', function(e) {
-        getSchwifty(imgContainer, e.clientX, e.clientY);
+        getSchwifty(cardContainer, e.clientX, e.clientY);
     });
 
-    this.document.querySelector('#main').addEventListener('mouseout', function(e) {
-        getSchwifty(imgContainer, imgContainerWidth, imgContainerHeight);
+    this.document.querySelector('#main').addEventListener('mouseout', function() {
+        getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
     });
 
-    this.document.querySelector('.modern_context_js_outer').addEventListener('mouseout', function(e) {
-        getSchwifty(imgContainer, imgContainerWidth, imgContainerHeight);
+    this.document.querySelector('.modern_context_js_outer').addEventListener('mouseout', function() {
+        getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
     });
 
 
     /** ... and on mobile */
 
-    this.document.querySelector('#main').addEventListener('touchmove', function(e) {
+    this.document.querySelector('#wrapper').addEventListener('touchmove', function(e) {
         e.preventDefault();
         const touch = e.targetTouches[0]
         if (touch) {
-            getSchwifty(imgContainer, touch.pageX, touch.pageY);
+            getSchwifty(cardContainer, touch.pageX, touch.pageY);
         }
     });
 
-    this.document.addEventListener('touchend', function(e) {
-        getSchwifty(imgContainer, imgContainerWidth, imgContainerHeight);
+    this.document.addEventListener('touchend', function() {
+        getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
     });
 
 });
@@ -142,12 +142,12 @@ function gateway(node) {
     switch (node) {
         case 1:
             SnackBar({
-                message: "Composing e-mail to hello@jbbmb.com...",
+                message: "Composing message using your provider...&nbsp&nbsp",
                 status: "info",
-                position: "br",
+                position: "tr",
                 fixed: true,
-                timeout: false,
-                dismissible: true
+                timeout: 6000,
+                dismissible: false
             });
             window.location.href = "mailto:hello@jbbmb.com";
             break;
@@ -179,24 +179,28 @@ function gateway(node) {
             window.location.href = "https://routinehub.co/user/jbbmb";
             break;
         case 404:
-            SnackBar({
-                message: "Sorry, the requested page was not found!",
-                status: "error",
-                position: "br",
-                fixed: true,
-                timeout: false,
-                dismissible: true
-            });
+            setTimeout(() => {
+                SnackBar({
+                    message: "Sorry, the requested page was not found!&nbsp&nbsp",
+                    status: "error",
+                    position: "tr",
+                    fixed: true,
+                    timeout: 6000,
+                    dismissible: false
+                })
+            }, 500);
             break;
         default:
-            SnackBar({
-                message: "Sorry, an internal error has occurred!",
-                status: "error",
-                position: "br",
-                fixed: true,
-                timeout: false,
-                dismissible: true
-            });
+            setTimeout(() => {
+                SnackBar({
+                    message: "Sorry, an internal error has occurred!&nbsp&nbsp",
+                    status: "error",
+                    position: "tr",
+                    fixed: true,
+                    timeout: 6000,
+                    dismissible: false
+                })
+            }, 500);
             break;
     }
 }

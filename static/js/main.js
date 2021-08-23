@@ -56,7 +56,7 @@ window.addEventListener('load', function() {
 
     const node = window.location.href.split("#")[1];
     if (node != null) {
-        gateway(node);
+        gateway(parseInt(node));
     }
 
 
@@ -205,7 +205,7 @@ function gateway(node) {
 /** Loads the selected route */
 
 function reload(node) {
-    const next = ("https://jbbmb.com#").concat(node);
+    const next = ("https://jbbmb.com#").concat(node.toString());
     window.location.href = next;
 }
 

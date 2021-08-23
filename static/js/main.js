@@ -54,9 +54,9 @@ window.addEventListener('load', function() {
 
     /** Evaluates URL parameters */
 
-    const node = window.location.href.split("#")[1];
+    const node = parseInt(window.location.href.split("#")[1]);
     if (node != null) {
-        gateway(parseInt(node));
+        gateway(node);
     }
 
 
@@ -172,7 +172,7 @@ function gateway(node) {
         case 8:
             window.location.href = "https://vsco.co/jbbmb/gallery";
             break;
-        case '9':
+        case 9:
             window.location.href = "https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g";
             break;
         case 10:

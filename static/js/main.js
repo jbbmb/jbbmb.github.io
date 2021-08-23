@@ -54,9 +54,9 @@ window.addEventListener('load', function() {
 
     /** Evaluates URL parameters */
 
-    const node = parseInt(window.location.href.split("#")[1]);
+    const node = window.location.href.split("#")[1];
     if (node != null) {
-        gateway(node);
+        gateway(parseInt(node));
     }
 
 

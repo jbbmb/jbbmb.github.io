@@ -15,31 +15,23 @@ const phrases = [
             type: "item",
             label: "Mail",
             callback: () => {
-                SnackBar({
-                    message: "Composing e-mail to hello@jbbmb.com...",
-                    status: "info",
-                    position: "br",
-                    fixed: true,
-                    timeout: false,
-                    dismissible: true
-                });
-                window.location.href = "mailto:hello@jbbmb.com";
+                gateway(1);
             }
         },
         {
             type: "item",
             label: "Skype",
             callback: () => {
-                window.location.href = "https://join.skype.com/invite/JaDhKR5KYErt";
+                gateway(2);
             }
         },
         {
             type: "item",
             label: "Telegram",
             callback: () => {
-                window.location.href = "https://telegram.me/jbbmb";
+                gateway(3);
             }
-        },
+        }
     ],
     context = new Context(".contexted", contacts);
 
@@ -122,6 +114,10 @@ window.addEventListener('load', function() {
         getSchwifty(imgContainer, imgContainerWidth, imgContainerHeight);
     });
 
+    this.document.querySelector('.modern_context_js_outer').addEventListener('mouseout', function(e) {
+        getSchwifty(imgContainer, imgContainerWidth, imgContainerHeight);
+    });
+
 
     /** ... and on mobile */
 
@@ -144,28 +140,45 @@ window.addEventListener('load', function() {
 
 function gateway(node) {
     switch (node) {
-        case "pay":
+        case 1:
+            SnackBar({
+                message: "Composing e-mail to hello@jbbmb.com...",
+                status: "info",
+                position: "br",
+                fixed: true,
+                timeout: false,
+                dismissible: true
+            });
+            window.location.href = "mailto:hello@jbbmb.com";
+            break;
+        case 2:
+            window.location.href = "https://join.skype.com/invite/JaDhKR5KYErt";
+            break;
+        case 3:
+            window.location.href = "https://telegram.me/jbbmb";
+            break;
+        case 4:
             window.location.href = "https://revolut.me/jbbmb";
             break;
-        case "cvitae":
+        case 5:
             window.location.href = "https://www.linkedin.com/in/jbbmb";
             break;
-        case "git":
+        case 6:
             window.location.href = "https://github.com/jbbmb";
             break;
-        case "music":
+        case 7:
             window.location.href = "https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB";
             break;
-        case "photos":
+        case 8:
             window.location.href = "https://vsco.co/jbbmb/gallery";
             break;
-        case "videos":
+        case '9':
             window.location.href = "https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g";
             break;
-        case "shortcuts":
+        case 10:
             window.location.href = "https://routinehub.co/user/jbbmb";
             break;
-        case "404":
+        case 404:
             SnackBar({
                 message: "Sorry, the requested page was not found!",
                 status: "error",

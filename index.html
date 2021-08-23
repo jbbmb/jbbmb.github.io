@@ -22,6 +22,7 @@
     <link rel="icon" type="image/x-icon" sizes="16x16" href="static/assets/favicon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="static/css/main.css" />
     <noscript><link rel="stylesheet" type="text/css" href="static/css/noscript.css" /></noscript>
+    <script async type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-FMEDZDBVNJ"></script>
 </head>
 
 <body class="is-preload">
@@ -29,13 +30,11 @@
     <div id="wrapper">
 
         <section id="main">
-            <header>
+            <header id="identity">
                 <span class="avatar"><img src="static/assets/favicon/avatar-touch-icon.jpg" alt="@JBBMB"/></span>
                 <img class="signature" src="static/assets/signature.png" alt="João de Macedo Borges" title="João de Macedo Borges" />
                 <br>
-                <div id="greeting">
-                    <p></p>
-                </div>
+                <div id="greeting"></div>
             </header>
 
             <h1><span>João de Macedo Borges @jbbmb.com</span></h1>
@@ -44,30 +43,30 @@
             <footer>
                 <ul class="icons">
                     <li>
-                        <a rel="external" class="contexted"><img class="icon" src="static/assets/glyphs/envelope.png" alt="Contact" title="Get in touch..." /><span>Get in touch...</span></a>
+                        <a rel="external"><img class="icon contexted" src="static/assets/glyphs/envelope.png" alt="Contact" title="Get in touch..." /><span>Get in touch...</span></a>
                     </li>
                     <li>
-                        <a rel="external" href="javascript:gateway('pay');"><img class="icon" src="static/assets/glyphs/wallet.png" alt="Revolut" title="Pay via Revolut" /><span>Pay via Revolut</span></a>
+                        <a rel="external"><img class="icon" onclick="gateway(4)" src="static/assets/glyphs/wallet.png" alt="Revolut" title="Pay via Revolut" /><span>Pay via Revolut</span></a>
                     </li>
                     <li>
-                        <a rel="external" href="javascript:gateway('cvitae');"><img class="icon" src="static/assets/glyphs/linkedin.png" alt="LinkedIn" title="Open on LinkedIn" /><span>Open on LinkedIn</span></a>
+                        <a rel="external"><img class="icon" onclick="gateway(5)" src="static/assets/glyphs/linkedin.png" alt="LinkedIn" title="Open on LinkedIn" /><span>Open on LinkedIn</span></a>
                     </li>
                     <li>
-                        <a rel="external" href="javascript:gateway('git');"><img class="icon" src="static/assets/glyphs/github.png" alt="GitHub" title="Open on GitHub" /><span>Open on GitHub</span></a>
+                        <a rel="external"><img class="icon" onclick="gateway(6)" src="static/assets/glyphs/github.png" alt="GitHub" title="Open on GitHub" /><span>Open on GitHub</span></a>
                     </li>
                 </ul>
                 <ul class="icons">
                     <li>
-                        <a rel="external" href="javascript:gateway('music');"><img class="icon" src="static/assets/glyphs/music.png" alt="Music" title="Listen on Apple Music" /><span>Listen on Apple Music</span></a>
+                        <a rel="external"><img class="icon" onclick="gateway(7)" src="static/assets/glyphs/music.png" alt="Music" title="Listen on Apple Music" /><span>Listen on Apple Music</span></a>
                     </li>
                     <li>
-                        <a rel="external" href="javascript:gateway('photos');"><img class="icon" src="static/assets/glyphs/camera.png" alt="Photos" title="Open on VSCO" /><span>Open on VSCO</span></a>
+                        <a rel="external"><img class="icon" onclick="gateway(8)" src="static/assets/glyphs/camera.png" alt="Photos" title="Open on VSCO" /><span>Open on VSCO</span></a>
                     </li>
                     <li>
-                        <a rel="external" href="javascript:gateway('videos');"><img class="icon" src="static/assets/glyphs/youtube.png" alt="YouTube" title="Watch on YouTube" /><span>Watch on YouTube</span></a>
+                        <a rel="external"><img class="icon" onclick="gateway(9)" src="static/assets/glyphs/youtube.png" alt="YouTube" title="Watch on YouTube" /><span>Watch on YouTube</span></a>
                     </li>
                     <li>
-                        <a rel="external" href="javascript:gateway('shortcuts');"><img class="icon" src="static/assets/glyphs/shortcuts.png" alt="RoutineHub" title="Open on RoutineHub" /><span>Open on RoutineHub</span></a>
+                        <a rel="external"><img class="icon" onclick="gateway(10)" src="static/assets/glyphs/shortcuts.png" alt="RoutineHub" title="Open on RoutineHub" /><span>Open on RoutineHub</span></a>
                     </li>
                 </ul>
             </footer>
@@ -79,7 +78,6 @@
 
 </body>
 
-<script async type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-FMEDZDBVNJ"></script>
 <script type="text/javascript" src="static/js/context.js"></script>
 <script type="text/javascript" src="static/js/main.js"></script>
 <script type="text/javascript" src="static/js/snackbar.js"></script>

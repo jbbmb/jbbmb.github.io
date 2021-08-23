@@ -170,7 +170,6 @@ html {
     height: 100%;
     box-sizing: border-box;
     background-color: #ededed;
-    overflow-anchor: none !important;
 }
 
 *,
@@ -204,7 +203,7 @@ body.is-preload:after {
 }
 
 #greeting {
-    min-height: 5em;
+    min-height: 6em;
     opacity: 0.8;
 }
 
@@ -386,16 +385,16 @@ hr {
     border-bottom: none;
     display: block;
     margin: 0 auto;
-    height: 74%;
+    width: 75%;
     opacity: 0.8;
-    transform: translateZ(0px);
     transition: var(--transition);
     z-index: 2;
+    will-change: transform, opacity;
 }
 
 .icon:hover {
     opacity: 0.9;
-    transform: scale(1.4) translateZ(0px);
+    transform: scale(1.4);
     transition: var(--transition);
     z-index: 3;
 }
@@ -405,13 +404,14 @@ hr {
 }
 
 .contexted.hovered {
-    transform: scale(1.2) translateZ(0px);
+    opacity: 1;
+    transform: scale(1.2);
     transition: var(--transition);
 }
 
 .icon:active {
     opacity: 1;
-    transform: scale(1.2) translateZ(0px);
+    transform: scale(1.2);
     transition: var(--transition);
     z-index: 4;
 }
@@ -495,21 +495,21 @@ ul.icons li a:before {
     -webkit-transform: rotateX(0deg);
     -ms-transform: rotateX(0deg);
     transform: rotateX(0deg);
-    padding: 4em 3em 3em 3em;
+    padding: 4em 2.5em 2.5em 2.5em;
     background: #ffffff;
     border-radius: 12px;
     cursor: default;
     max-width: 100%;
     position: relative;
     text-align: center;
-    width: 28em;
+    width: 26em;
     z-index: 1;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
     transition: var(--transition);
+    will-change: transform;
 }
 
 #main:hover {
-    z-index: 2;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
     transition: var(--transition);
 }
@@ -525,8 +525,8 @@ ul.icons li a:before {
     margin: 0 auto;
     border-radius: 100%;
     box-shadow: 0 0 0 1em #ffffff;
-    height: 142px;
-    width: 142px;
+    width: 41%;
+    z-index: 1;
 }
 
 #main .avatar:before {
@@ -534,8 +534,8 @@ ul.icons li a:before {
     display: block;
     position: absolute;
     top: 50%;
-    left: -3em;
-    width: calc(100% + 6.05em);
+    left: -2.5em;
+    width: calc(100% + 5em);
     height: 2px;
     z-index: -1;
     background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 154, 0, 1) 5%, rgba(208, 222, 33, 1) 10%, rgba(79, 220, 74, 1) 15%, rgba(63, 218, 216, 1) 20%, rgba(47, 201, 226, 1) 25%, rgba(28, 127, 238, 1) 30%, rgba(95, 21, 242, 1) 35%, rgba(186, 12, 248, 1) 40%, rgba(251, 7, 217, 1) 45%, rgba(255, 0, 0, 1) 50%, rgba(255, 154, 0, 1) 55%, rgba(208, 222, 33, 1) 60%, rgba(79, 220, 74, 1) 65%, rgba(63, 218, 216, 1) 70%, rgba(47, 201, 226, 1) 75%, rgba(28, 127, 238, 1) 80%, rgba(95, 21, 242, 1) 85%, rgba(186, 12, 248, 1) 90%, rgba(251, 7, 217, 1) 95%, rgba(255, 0, 0, 1) 100%);
@@ -608,7 +608,7 @@ ul.icons li a:before {
 #main .signature {
     display: block;
     margin: 0 auto;
-    width: 100%;
+    width: 99%;
     opacity: 0.8;
 }
 
@@ -618,6 +618,10 @@ body.is-preload #main {
     -ms-transform: rotateX(20deg);
     transform: rotateX(20deg);
     opacity: 0;
+}
+
+#identity {
+    z-index: 2;
 }
 
 
@@ -853,13 +857,13 @@ body.is-ie #wrapper {
 
 .js-snackbar__close:hover {
     opacity: 0.9;
-    transform: scale(1.4) translateZ(0px);
+    transform: scale(1.4);
     transition: var(--transition);
 }
 
 .js-snackbar__close:active {
     opacity: 1;
-    transform: scale(1.2) translateZ(0px);
+    transform: scale(1.2);
     transition: var(--transition);
 }
 
@@ -910,6 +914,7 @@ body.is-ie #wrapper {
     color: #000000;
     line-height: 1.75;
     font-size: 13pt;
+    opacity: 0.8;
     box-sizing: border-box;
     position: relative;
 }
@@ -932,6 +937,7 @@ body.is-ie #wrapper {
 }
 
 .modern_context_js_outer .context_item.hover:hover {
+    opacity: 0.9;
     cursor: pointer;
 }
 
@@ -940,6 +946,7 @@ body.is-ie #wrapper {
 }
 
 .modern_context_js_outer .context_item:active .context_item_inner {
-    transform: scale(0.9) translateZ(0px);
+    opacity: 1;
+    transform: scale(0.9);
     transition: var(--transition);
 }

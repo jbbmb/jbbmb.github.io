@@ -28,6 +28,6 @@ footer {
 
 /* JS warning */
 
-#greeting::after {
+#greeting::before {
     content: 'Enable JavaScript to use this website!' !important;
 }

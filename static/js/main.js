@@ -5,11 +5,11 @@ const phrases = [
         getGreeting(),
         'Welcome to the virtual corner of',
         'this male Homo Sapiens specimen',
-        'born early April of 1997, in Portugal,',
+        'born early April of 1997 in Portugal',
         'who is passionate about technology',
         'and many other things you can explore',
-        'by using the many options below.',
-        'Thank You so much for visiting!'
+        'using the many options below.',
+        'Thank You so much for visiting.'
     ],
     contacts = [{
             type: "item",
@@ -60,11 +60,6 @@ window.addEventListener('load', function() {
     }
 
 
-    /** Blocks native context menu */
-
-    this.document.addEventListener('contextmenu', event => event.preventDefault());
-
-
     /** Removes preload tag */
 
     this.document.body.className = this.document.body.className.replace(/\bis-preload\b/, '');
@@ -77,14 +72,14 @@ window.addEventListener('load', function() {
     let counter = 0;
     const next = () => {
         fx.setText(phrases[counter]).then(() => {
-            setTimeout(next, 2000)
+            setTimeout(next, 3500)
         });
         counter = (counter + 1) % phrases.length;
     };
     next();
 
 
-    /* Animates card with parallax... */
+    /** Animates card with parallax... */
 
     const cardContainer = this.document.querySelector('#main');
     var cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.5 + cardContainer.getBoundingClientRect().top,
@@ -96,30 +91,20 @@ window.addEventListener('load', function() {
     }, true);
 
     function getSchwifty(el, positionX, positionY) {
-        el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 20}deg) rotateY(${(positionX - cardContainerWidth) / 15}deg) translateZ(-2px)`);
+        el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 20}deg) rotateY(${(positionX - cardContainerWidth) / 20}deg) translateZ(-2px)`);
     }
 
 
-    /** ... on desktop */
+    /** Activates input event listeners */
 
-    this.document.querySelector('#main').addEventListener('mousemove', function(e) {
-        getSchwifty(cardContainer, e.clientX, e.clientY);
+    this.document.querySelectorAll("#main").forEach(function(item) {
+        item.addEventListener("mousemove", function(e) {
+            getSchwifty(cardContainer, e.clientX, e.clientY);
+        });
+        item.addEventListener("mouseout", function() {
+            getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+        });
     });
-
-    this.document.querySelector('.modern_context_js_outer').addEventListener('mousemove', function(e) {
-        getSchwifty(cardContainer, e.clientX, e.clientY);
-    });
-
-    this.document.querySelector('#main').addEventListener('mouseout', function() {
-        getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
-    });
-
-    this.document.querySelector('.modern_context_js_outer').addEventListener('mouseout', function() {
-        getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
-    });
-
-
-    /** ... and on mobile */
 
     this.document.querySelector('#wrapper').addEventListener('touchmove', function(e) {
         e.preventDefault();
@@ -133,6 +118,39 @@ window.addEventListener('load', function() {
         getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
     });
 
+    this.document.addEventListener('contextmenu', event => event.preventDefault());
+
+    this.document.querySelectorAll(".icon").forEach(function(icon) {
+        icon.addEventListener("mousemove", function() {
+            document.querySelector('#description').innerHTML = icon.getAttribute('alt');
+            document.querySelector('#greeting').style.display = 'none';
+            document.querySelector('#description').style.display = 'block';
+        });
+        icon.addEventListener("mouseout", function() {
+            document.querySelector('#description').style.display = 'none';
+            document.querySelector('#greeting').style.display = 'block';
+        });
+    });
+
+    this.document.querySelectorAll(".direct").forEach(function(icon) {
+        icon.addEventListener("click", function() {
+            gateway(parseInt(icon.getAttribute('id')));
+        });
+    });
+
+    this.document.querySelectorAll(".modern_context_js_outer").forEach(function(item) {
+        item.addEventListener("mousemove", function(e) {
+            getSchwifty(cardContainer, e.clientX, e.clientY);
+            document.querySelector('#greeting').style.display = 'none';
+            document.querySelector('#description').style.display = 'block';
+        });
+        item.addEventListener("mouseout", function() {
+            getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+            document.querySelector('#description').style.display = 'none';
+            document.querySelector('#greeting').style.display = 'block';
+        });
+    });
+
 });
 
 
@@ -142,7 +160,7 @@ function gateway(node) {
     switch (node) {
         case 1:
             SnackBar({
-                message: "Composing message using your provider...&nbsp&nbsp",
+                message: "Composing message using your provider...&nbsp",
                 status: "info",
                 position: "tr",
                 fixed: true,
@@ -181,7 +199,7 @@ function gateway(node) {
         case 404:
             setTimeout(() => {
                 SnackBar({
-                    message: "Sorry, the requested page was not found!&nbsp&nbsp",
+                    message: "Sorry, the requested page was not found!&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,
@@ -193,7 +211,7 @@ function gateway(node) {
         default:
             setTimeout(() => {
                 SnackBar({
-                    message: "Sorry, an internal error has occurred!&nbsp&nbsp",
+                    message: "Sorry, an internal error has occurred!&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,
@@ -218,16 +236,16 @@ function reload(node) {
 
 function getGreeting() {
     var goodX = [
-            [0, 5, "Good night..."],
-            [6, 11, "Good morning..."],
-            [12, 19, "Good afternoon..."],
-            [20, 23, "Good evening..."]
+            [0, 5, "good night!"],
+            [6, 11, "good morning!"],
+            [12, 19, "good afternoon!"],
+            [20, 23, "good evening!"]
         ],
         hr = new Date().getHours();
     for (var i = 0; i < goodX.length; i++) {
         if (hr >= goodX[i][0] && hr <= goodX[i][1]) {
             console.log("Opening Web Inspector I see...");
-            return (goodX[i][2]);
+            return "Hello, ".concat(goodX[i][2]);
         }
     }
 }

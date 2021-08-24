@@ -7,8 +7,13 @@ class Context {
         this.add_contents(contents);
         document.querySelectorAll(target_selector).forEach((target) => {
             target.addEventListener("click", (event) => {
-                document.querySelector('.contexted').classList.add("hovered");
-                this.open(event);
+                if (this.context.style.display == 'block') {
+                    document.querySelector('.contexted').classList.remove("hovered");
+                    this.close();
+                } else {
+                    document.querySelector('.contexted').classList.add("hovered");
+                    this.open(event);
+                }
                 event.preventDefault();
                 event.stopPropagation();
             });

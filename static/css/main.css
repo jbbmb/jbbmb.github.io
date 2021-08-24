@@ -202,9 +202,14 @@ body.is-preload:after {
     opacity: 1;
 }
 
-#greeting {
+#greeting,
+#description {
     min-height: 8em;
     opacity: 0.8;
+}
+
+#description {
+    display: none;
 }
 
 .dud {
@@ -221,9 +226,10 @@ body.is-preload:after {
     #main .avatar img {
         box-shadow: 0 0 0 1em #282828 !important;
     }
+    #greeting,
+    #description,
     .js-snackbar *,
-    .modern_context_js_outer .context_item,
-    #greeting {
+    .modern_context_js_outer .context_item {
         color: #ffffff !important;
     }
     .signature,
@@ -455,10 +461,6 @@ ul.icons li a {
 
 ul.icons li img {
     cursor: pointer;
-}
-
-ul.icons li span {
-    display: none;
 }
 
 ul.icons li a:before {

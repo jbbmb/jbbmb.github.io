@@ -430,23 +430,23 @@ hr {
     font-weight: 400;
 }
 
-ul.icons {
+.icons {
     cursor: default;
     list-style: none;
 }
 
-ul.icons li {
+.icons li {
     display: inline-block;
     padding: 0.25em 0.25em;
 }
 
 @media screen and (max-width: 320px) {
-    ul.icons li {
+    .icons li {
         padding: 0.15em 0.15em;
     }
 }
 
-ul.icons li a {
+.icons li a {
     text-decoration: none;
     position: relative;
     display: block;
@@ -459,11 +459,11 @@ ul.icons li a {
     cursor: default;
 }
 
-ul.icons li img {
+.icons li img {
     cursor: pointer;
 }
 
-ul.icons li a:before {
+.icons li a:before {
     display: inline-block;
     font-style: normal;
     font-variant: normal;

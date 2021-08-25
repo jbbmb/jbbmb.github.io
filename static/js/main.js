@@ -114,7 +114,8 @@ window.addEventListener('load', function() {
         }
     });
 
-    this.document.addEventListener('touchend', function() {
+    this.document.addEventListener('touchend', function(e) {
+        e.preventDefault();
         getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
     });
 

@@ -56,18 +56,24 @@ window.addEventListener('load', function() {
 
     const node = window.location.href.split("#")[1];
     if (node != null) {
-        gateway(parseInt(node));
+        document.querySelector('#description').innerHTML = 'Redirecting You...';
+        document.querySelector('#greeting').style.display = 'none';
+        document.querySelector('#description').style.display = 'block';
+        setTimeout(() => {
+            gateway(parseInt(node));
+        }, 500);
+
     }
 
 
     /** Removes preload tag */
 
-    this.document.body.className = this.document.body.className.replace(/\bis-preload\b/, '');
+    document.body.className = document.body.className.replace(/\bis-preload\b/, '');
 
 
     /** Activates TextScramble */
 
-    const el = this.document.querySelector('#greeting'),
+    const el = document.querySelector('#greeting'),
         fx = new TextScramble(el);
     let counter = 0;
     const next = () => {
@@ -81,7 +87,7 @@ window.addEventListener('load', function() {
 
     /** Animates card with parallax... */
 
-    const cardContainer = this.document.querySelector('#main');
+    const cardContainer = document.querySelector('#main');
     var cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.5 + cardContainer.getBoundingClientRect().top,
         cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
 
@@ -97,16 +103,18 @@ window.addEventListener('load', function() {
 
     /** Activates input event listeners */
 
-    this.document.querySelectorAll("#main").forEach(function(item) {
+    document.querySelectorAll("#main").forEach(function(item) {
         item.addEventListener("mousemove", function(e) {
             getSchwifty(cardContainer, e.clientX, e.clientY);
         });
         item.addEventListener("mouseout", function() {
             getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+            document.querySelector('#description').style.display = 'none';
+            document.querySelector('#greeting').style.display = 'block';
         });
     });
 
-    this.document.querySelector('#wrapper').addEventListener('touchmove', function(e) {
+    document.querySelector('#wrapper').addEventListener('touchmove', function(e) {
         e.preventDefault();
         const touch = e.targetTouches[0]
         if (touch) {
@@ -114,14 +122,14 @@ window.addEventListener('load', function() {
         }
     });
 
-    this.document.addEventListener('touchend', function(e) {
-        e.preventDefault();
+    document.addEventListener('touchend', function(e) {
+        e.stopImmediatePropagation();
         getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
     });
 
-    this.document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', event => event.preventDefault());
 
-    this.document.querySelectorAll(".icon").forEach(function(icon) {
+    document.querySelectorAll(".icon").forEach(function(icon) {
         icon.addEventListener("mousemove", function() {
             document.querySelector('#description').innerHTML = icon.getAttribute('alt');
             document.querySelector('#greeting').style.display = 'none';
@@ -133,13 +141,13 @@ window.addEventListener('load', function() {
         });
     });
 
-    this.document.querySelectorAll(".direct").forEach(function(icon) {
+    document.querySelectorAll(".direct").forEach(function(icon) {
         icon.addEventListener("click", function() {
             gateway(parseInt(icon.getAttribute('id')));
         });
     });
 
-    this.document.querySelectorAll(".modern_context_js_outer").forEach(function(item) {
+    document.querySelectorAll(".modern_context_js_outer").forEach(function(item) {
         item.addEventListener("mousemove", function(e) {
             getSchwifty(cardContainer, e.clientX, e.clientY);
             document.querySelector('#greeting').style.display = 'none';

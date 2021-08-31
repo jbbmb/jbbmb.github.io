@@ -44,10 +44,6 @@ window.addEventListener('load', function() {
     /** Pings Analytics */
 
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
     gtag('js', new Date());
     gtag('config', 'G-FMEDZDBVNJ');
 
@@ -320,4 +316,8 @@ class TextScramble {
     randomChar() {
         return this.chars[Math.floor(Math.random() * this.chars.length)]
     }
+}
+
+function gtag() {
+    dataLayer.push(arguments);
 }

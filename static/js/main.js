@@ -199,7 +199,10 @@ function gateway(node) {
             window.location.href = "https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB";
             break;
         case 8:
-            ga('send', 'event', 'photos', 'click', 'photos');
+            gtag('event', 'click', {
+                'event_category': 'photos',
+                'event_label': 'photos'
+            });
             window.location.href = "https://vsco.co/jbbmb/gallery";
             break;
         case 9:

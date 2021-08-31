@@ -199,8 +199,8 @@ function gateway(node) {
             window.location.href = "https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB";
             break;
         case 8:
-            window.location.href = "https://vsco.co/jbbmb/gallery";
             ga('send', 'event', 'photos', 'click', 'photos');
+            window.location.href = "https://vsco.co/jbbmb/gallery";
             break;
         case 9:
             window.location.href = "https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g";

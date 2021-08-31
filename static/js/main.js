@@ -123,8 +123,10 @@ window.addEventListener('load', function() {
     });
 
     document.addEventListener('touchend', function(e) {
-        e.stopImmediatePropagation();
+        e.stopPropagation();
         getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+        document.querySelector('#description').style.display = 'none';
+        document.querySelector('#greeting').style.display = 'block';
     });
 
     document.addEventListener('contextmenu', event => event.preventDefault());
@@ -198,6 +200,7 @@ function gateway(node) {
             break;
         case 8:
             window.location.href = "https://vsco.co/jbbmb/gallery";
+            ga('send', 'event', 'photos', 'click', 'photos');
             break;
         case 9:
             window.location.href = "https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g";

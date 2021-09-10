@@ -175,61 +175,61 @@ function gateway(node) {
                 dismissible: false
             });
             gtag('event', 'click', {
-                'event_label': 'mail'
+                'event_category': 'mail'
             });
             window.location.href = "mailto:hello@jbbmb.com";
             break;
         case 2:
             gtag('event', 'click', {
-                'event_label': 'skype'
+                'event_category': 'skype'
             });
             window.location.href = "https://join.skype.com/invite/JaDhKR5KYErt";
             break;
         case 3:
             gtag('event', 'click', {
-                'event_label': 'telegram'
+                'event_category': 'telegram'
             });
             window.location.href = "https://telegram.me/jbbmb";
             break;
         case 4:
             gtag('event', 'click', {
-                'event_label': 'pay'
+                'event_category': 'pay'
             });
             window.location.href = "https://revolut.me/jbbmb";
             break;
         case 5:
             gtag('event', 'click', {
-                'event_label': 'cvitae'
+                'event_category': 'cvitae'
             });
             window.location.href = "https://www.linkedin.com/in/jbbmb";
             break;
         case 6:
             gtag('event', 'click', {
-                'event_label': 'git'
+                'event_category': 'git'
             });
             window.location.href = "https://github.com/jbbmb";
             break;
         case 7:
             gtag('event', 'click', {
-                'event_label': 'music'
+                'event_category': 'music'
             });
             window.location.href = "https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB";
             break;
         case 8:
             gtag('event', 'click', {
-                'event_label': 'photos'
+                'event_category': 'photos'
             });
             window.location.href = "https://vsco.co/jbbmb/gallery";
             break;
         case 9:
             gtag('event', 'click', {
-                'event_label': 'videos'
+                'event_category': 'videos'
             });
             window.location.href = "https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g";
             break;
         case 10:
             gtag('event', 'click', {
-                'event_label': 'shortcuts'
+                'event_category': 'shortcuts'
             });
             window.location.href = "https://routinehub.co/user/jbbmb";
             break;

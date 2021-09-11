@@ -233,6 +233,9 @@ function gateway(node) {
             });
             window.location.href = "https://routinehub.co/user/jbbmb";
             break;
+        case 200:
+            window.location.href = "https://stats.uptimerobot.com/8zGoWtX68J/789162904";
+            break;
         case 404:
             setTimeout(() => {
                 SnackBar({

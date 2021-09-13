@@ -94,6 +94,7 @@ video {
     padding: 0;
     border: 0;
     vertical-align: baseline;
+    -webkit-touch-callout: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;

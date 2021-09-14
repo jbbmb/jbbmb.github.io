@@ -36,4 +36,8 @@
       <loc>http://jbbmb.com/shortcuts/</loc>
       <changefreq>monthly</changefreq>
    </url>
+   <url>
+      <loc>http://jbbmb.com/status/</loc>
+      <changefreq>monthly</changefreq>
+   </url>
 </urlset>

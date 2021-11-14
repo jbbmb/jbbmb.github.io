@@ -93,7 +93,7 @@ window.addEventListener('load', function() {
     }, true);
 
     function getSchwifty(el, positionX, positionY) {
-        el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 20}deg) rotateY(${(positionX - cardContainerWidth) / 20}deg) translateZ(-2px)`);
+        el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 30}deg) rotateY(${((positionX - cardContainerWidth) / 30)*(-1)}deg) translateZ(-15px)`);
     }
 
 

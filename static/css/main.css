@@ -498,7 +498,7 @@ hr {
     transform: rotateX(0deg);
     padding: 4em 2.5em 2.5em 2.5em;
     background: #ffffff;
-    border-radius: 12px;
+    border-radius: 16px;
     cursor: default;
     max-width: 100%;
     position: relative;
@@ -615,10 +615,10 @@ hr {
 }
 
 body.is-preload #main {
-    -moz-transform: rotateX(20deg);
-    -webkit-transform: rotateX(20deg);
-    -ms-transform: rotateX(20deg);
-    transform: rotateX(20deg);
+    -moz-transform: rotateX(30deg);
+    -webkit-transform: rotateX(30deg);
+    -ms-transform: rotateX(30deg);
+    transform: rotateX(30deg);
     opacity: 0;
 }
 

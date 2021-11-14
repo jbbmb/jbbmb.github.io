@@ -8,9 +8,9 @@ const phrases = [
         'born early April of 1997 in Portugal',
         'who is passionate about technology',
         'prefers a nice gin tonic over beer',
-        'and keeps changing his wallpapers',
-        'with the World being on his bucket list.',
-        'Thank You so much for visiting.'
+        'keeps changing his wallpapers',
+        'with the World on his bucket list',
+        'and that thanks You for visiting.'
     ],
     contacts = [{
             type: "item",

@@ -7,29 +7,30 @@ const phrases = [
         'this male Homo Sapiens specimen',
         'born early April of 1997 in Portugal',
         'who is passionate about technology',
-        'and many other things you can explore',
-        'using the many options below.',
+        'prefers a nice gin tonic over beer',
+        'and keeps changing his wallpapers',
+        'with the World being on his bucket list.',
         'Thank You so much for visiting.'
     ],
     contacts = [{
             type: "item",
             label: "Mail",
             callback: () => {
-                gateway(1);
+                gateway(1, "_blank");
             }
         },
         {
             type: "item",
             label: "Skype",
             callback: () => {
-                gateway(2);
+                gateway(2, "_blank");
             }
         },
         {
             type: "item",
             label: "Telegram",
             callback: () => {
-                gateway(3);
+                gateway(3, "_blank");
             }
         }
     ],
@@ -56,7 +57,7 @@ window.addEventListener('load', function() {
         document.querySelector('#greeting').style.display = 'none';
         document.querySelector('#description').style.display = 'block';
         setTimeout(() => {
-            gateway(parseInt(node));
+            gateway(parseInt(node), "_self");
         }, 500);
 
     }
@@ -118,6 +119,10 @@ window.addEventListener('load', function() {
         }
     });
 
+    document.querySelector('#wrapper').addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    });
+
     document.addEventListener('touchend', function(e) {
         e.stopPropagation();
         getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
@@ -141,7 +146,7 @@ window.addEventListener('load', function() {
 
     document.querySelectorAll(".direct").forEach(function(icon) {
         icon.addEventListener("click", function() {
-            gateway(parseInt(icon.getAttribute('id')));
+            gateway(parseInt(icon.getAttribute('id')), "_blank");
         });
     });
 
@@ -163,7 +168,7 @@ window.addEventListener('load', function() {
 
 /** Redirects the user accordingly */
 
-function gateway(node) {
+function gateway(node, target) {
     switch (node) {
         case 1:
             SnackBar({
@@ -183,55 +188,55 @@ function gateway(node) {
             gtag('event', 'click', {
                 'event_category': 'skype'
             });
-            window.location.href = "https://join.skype.com/invite/JaDhKR5KYErt";
+            window.open("https://join.skype.com/invite/JaDhKR5KYErt", target);
             break;
         case 3:
             gtag('event', 'click', {
                 'event_category': 'telegram'
             });
-            window.location.href = "https://telegram.me/jbbmb";
+            window.open("https://telegram.me/jbbmb", target);
             break;
         case 4:
             gtag('event', 'click', {
                 'event_category': 'pay'
             });
-            window.location.href = "https://revolut.me/jbbmb";
+            window.open("https://revolut.me/jbbmb", target);
             break;
         case 5:
             gtag('event', 'click', {
                 'event_category': 'cvitae'
             });
-            window.location.href = "https://www.linkedin.com/in/jbbmb";
+            window.open("https://www.linkedin.com/in/jbbmb", target);
             break;
         case 6:
             gtag('event', 'click', {
                 'event_category': 'git'
             });
-            window.location.href = "https://github.com/jbbmb";
+            window.open("https://github.com/jbbmb", target);
             break;
         case 7:
             gtag('event', 'click', {
                 'event_category': 'music'
             });
-            window.location.href = "https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB";
+            window.open("https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB", target);
             break;
         case 8:
             gtag('event', 'click', {
                 'event_category': 'photos'
             });
-            window.location.href = "https://vsco.co/jbbmb/gallery";
+            window.open("https://vsco.co/jbbmb/gallery", target);
             break;
         case 9:
             gtag('event', 'click', {
                 'event_category': 'videos'
             });
-            window.location.href = "https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g";
+            window.open("https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g", target);
             break;
         case 10:
             gtag('event', 'click', {
                 'event_category': 'shortcuts'
             });
-            window.location.href = "https://routinehub.co/user/jbbmb";
+            window.open("https://routinehub.co/user/jbbmb", target);
             break;
         case 200:
             window.location.href = "https://stats.uptimerobot.com/8zGoWtX68J";

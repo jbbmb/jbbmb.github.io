@@ -21,13 +21,6 @@ const phrases = [
         },
         {
             type: "item",
-            label: "Skype",
-            callback: () => {
-                gateway(2, "_blank");
-            }
-        },
-        {
-            type: "item",
             label: "Telegram",
             callback: () => {
                 gateway(3, "_blank");
@@ -183,12 +176,6 @@ function gateway(node, target) {
                 'event_category': 'mail'
             });
             window.location.href = "mailto:hello@jbbmb.com";
-            break;
-        case 2:
-            gtag('event', 'click', {
-                'event_category': 'skype'
-            });
-            window.open("https://join.skype.com/invite/JaDhKR5KYErt", target);
             break;
         case 3:
             gtag('event', 'click', {

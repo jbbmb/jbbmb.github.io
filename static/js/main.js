@@ -165,7 +165,7 @@ function gateway(node, target) {
     switch (node) {
         case 1:
             SnackBar({
-                message: "Composing message using your provider...&nbsp",
+                message: "Copied address to clipboard...&nbsp",
                 status: "info",
                 position: "tr",
                 fixed: true,
@@ -175,7 +175,7 @@ function gateway(node, target) {
             gtag('event', 'click', {
                 'event_category': 'mail'
             });
-            window.location.href = "mailto:hello@jbbmb.com";
+            navigator.clipboard.writeText("hello@jbbmb.com");
             break;
         case 3:
             gtag('event', 'click', {

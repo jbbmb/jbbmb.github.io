@@ -165,7 +165,7 @@ function gateway(node, target) {
     switch (node) {
         case 1:
             SnackBar({
-                message: "Copied address to clipboard...&nbsp",
+                message: "Address copied to clipboard...&nbsp",
                 status: "info",
                 position: "tr",
                 fixed: true,

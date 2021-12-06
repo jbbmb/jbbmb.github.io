@@ -165,7 +165,7 @@ function gateway(node, target) {
     switch (node) {
         case 1:
             SnackBar({
-                message: "Address copied to clipboard...&nbsp",
+                message: "Mail address copied to clipboard...&nbsp",
                 status: "info",
                 position: "tr",
                 fixed: true,
@@ -237,7 +237,9 @@ function gateway(node, target) {
                     fixed: true,
                     timeout: 6000,
                     dismissible: false
-                })
+                });
+                document.querySelector('#description').style.display = 'none';
+                document.querySelector('#greeting').style.display = 'block';
             }, 500);
             break;
         default:
@@ -249,7 +251,9 @@ function gateway(node, target) {
                     fixed: true,
                     timeout: 6000,
                     dismissible: false
-                })
+                });
+                document.querySelector('#description').style.display = 'none';
+                document.querySelector('#greeting').style.display = 'block';
             }, 500);
             break;
     }

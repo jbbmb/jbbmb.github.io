@@ -225,6 +225,12 @@ function gateway(node, target) {
             });
             window.open("https://routinehub.co/user/jbbmb", target);
             break;
+        case 11:
+            gtag('event', 'click', {
+                'event_category': 'cvitae_pdf'
+            });
+            window.open("https://github.com/jbbmb/jbbmb.github.io/raw/main/static/pdf/Curriculum%20Vitae%20of%20João%20de%20Macedo%20Borges.pdf", target);
+            break;
         case 200:
             window.location.href = "https://stats.uptimerobot.com/8zGoWtX68J";
             break;

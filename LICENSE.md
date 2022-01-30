@@ -1,17 +1,13 @@
 ## Copyright © 2021 João de Macedo Borges
 ### All Rights Reserved where applicable.
 
-This software includes original work made free and public on HTML5UP:
-"Identity Template" and all of its components, used and/or re-used for this software, belong to their respective copyright owners.
+This software includes the following original work made free and public on HTML5UP: *Identity Template* and all of its components, used and/or re-used for this software, belong to their respective copyright owners.
 
-This software includes original work made free and public on CodePen:
-The copyright for the card parallax effect and all of its components, used and/or re-used for this software, belong to Louis Chenais.
-The copyright for the text scramble effect and all of its components, used and/or re-used for this software, belong to Justin Windle.
-The copyright for the rainbow flow effect and all of its components, used and/or re-used for this software, belong to Milan Nohejl.
+This software includes the following original work made free and public on CodePen: the copyright for the card parallax effect and all of its components, used and/or re-used for this software, belong to Louis Chenais; The copyright for the text scramble effect and all of its components, used and/or re-used for this software, belong to Justin Windle; The copyright for the rainbow flow effect and all of its components, used and/or re-used for this software, belong to Milan Nohejl.
 
-This software includes original work made free and public by Robot-Inventor, via an MIT license. The copyright for "modern-context" and all of its components, used and/or re-used for this software, belong to their respective owners.
+This software includes original work made free and public by Robot-Inventor, via an MIT license. The copyright for *modern-context* and all of its components, used and/or re-used for this software, belong to their respective owners.
 
-This software includes original work made free and public by Michael Mickelson, via an MIT license. The copyright for "js-snackbar" and all of its components, used and/or re-used for this software, belong to their respective owners.
+This software includes original work made free and public by Michael Mickelson, via an MIT license. The copyright for *js-snackbar* and all of its components, used and/or re-used for this software, belong to their respective owners.
 
 This software includes original work made free and public on Icons8, via their Open-Source Projects clause. Iconography copyrights fully belong to Icons8 LLC, and where applicable, CDN77.
 

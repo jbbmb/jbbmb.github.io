@@ -208,10 +208,16 @@ function gateway(node, target) {
             window.open("https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB", target);
             break;
         case 8:
-            gtag('event', 'click', {
-                'event_category': 'photos'
-            });
-            window.open("https://vsco.co/jbbmb/gallery", target);
+            setTimeout(() => {
+                SnackBar({
+                    message: "Sorry, the requested content is not available!&nbsp",
+                    status: "error",
+                    position: "tr",
+                    fixed: true,
+                    timeout: 6000,
+                    dismissible: false
+                });
+            }, 5);
             break;
         case 9:
             gtag('event', 'click', {

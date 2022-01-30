@@ -5,35 +5,7 @@
       <changefreq>monthly</changefreq>
    </url>
    <url>
-      <loc>http://jbbmb.com/pay/</loc>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
       <loc>http://jbbmb.com/cvitae/</loc>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>http://jbbmb.com/git/</loc>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>http://jbbmb.com/music/</loc>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>http://jbbmb.com/photos/</loc>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>http://jbbmb.com/videos/</loc>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>http://jbbmb.com/shortcuts/</loc>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>http://jbbmb.com/status/</loc>
       <changefreq>monthly</changefreq>
    </url>
 </urlset>

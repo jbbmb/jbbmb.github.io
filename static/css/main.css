@@ -432,6 +432,11 @@ hr {
 }
 
 .offline {
+    opacity: 0.2;
+    cursor: not-allowed !important;
+}
+
+.offline:hover {
     opacity: 0.2 !important;
 }
 

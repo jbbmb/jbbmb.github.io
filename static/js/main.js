@@ -2,37 +2,37 @@
 /** Initializes variables */
 
 const phrases = [
-        getGreeting(),
-        'Welcome to the virtual corner of',
-        'this male Homo Sapiens specimen',
-        'born early April of 1997 in Portugal',
-        'who is passionate about technology',
-        'prefers a nice gin tonic over beer',
-        'keeps changing his wallpapers',
-        'with the World on his bucket list',
-        'and that thanks You for visiting.'
-    ],
+    getGreeting(),
+    'Welcome to the virtual corner of',
+    'this male Homo Sapiens specimen',
+    'born early April of 1997 in Portugal',
+    'who is passionate about technology',
+    'prefers a nice gin tonic over beer',
+    'keeps changing his wallpapers',
+    'with the World on his bucket list',
+    'and that thanks You for visiting.'
+],
     contacts = [{
-            type: "item",
-            label: "Mail",
-            callback: () => {
-                gateway(1, "_blank");
-            }
-        },
-        {
-            type: "item",
-            label: "Telegram",
-            callback: () => {
-                gateway(3, "_blank");
-            }
+        type: "item",
+        label: "Mail",
+        callback: () => {
+            gateway(1, "_blank");
         }
+    },
+    {
+        type: "item",
+        label: "Telegram",
+        callback: () => {
+            gateway(3, "_blank");
+        }
+    }
     ],
     context = new Context(".contexted", contacts);
 
 
 /** Triggers on session load */
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 
 
     /** Pings Analytics */
@@ -81,30 +81,30 @@ window.addEventListener('load', function() {
     var cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.5 + cardContainer.getBoundingClientRect().top,
         cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.5 + cardContainer.getBoundingClientRect().top;
         cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
     }, true);
 
     function getSchwifty(el, positionX, positionY) {
-        el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 30}deg) rotateY(${((positionX - cardContainerWidth) / 30)*(-1)}deg) translateZ(-15px)`);
+        el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 30}deg) rotateY(${((positionX - cardContainerWidth) / 30) * (-1)}deg) translateZ(-15px)`);
     }
 
 
     /** Activates input event listeners */
 
-    document.querySelectorAll("#main").forEach(function(item) {
-        item.addEventListener("mousemove", function(e) {
+    document.querySelectorAll("#main").forEach(function (item) {
+        item.addEventListener("mousemove", function (e) {
             getSchwifty(cardContainer, e.clientX, e.clientY);
         });
-        item.addEventListener("mouseout", function() {
+        item.addEventListener("mouseout", function () {
             getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
             document.querySelector('#description').style.display = 'none';
             document.querySelector('#greeting').style.display = 'block';
         });
     });
 
-    document.querySelector('#main').addEventListener('touchmove', function(e) {
+    document.querySelector('#main').addEventListener('touchmove', function (e) {
         e.preventDefault();
         const touch = e.targetTouches[0];
         if (touch) {
@@ -112,11 +112,11 @@ window.addEventListener('load', function() {
         }
     });
 
-    document.querySelector('#wrapper').addEventListener('touchmove', function(e) {
+    document.querySelector('#wrapper').addEventListener('touchmove', function (e) {
         e.preventDefault();
     });
 
-    document.addEventListener('touchend', function(e) {
+    document.addEventListener('touchend', function (e) {
         e.stopPropagation();
         getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
         document.querySelector('#description').style.display = 'none';
@@ -125,31 +125,31 @@ window.addEventListener('load', function() {
 
     document.addEventListener('contextmenu', event => event.preventDefault());
 
-    document.querySelectorAll(".icon").forEach(function(icon) {
-        icon.addEventListener("mousemove", function() {
+    document.querySelectorAll(".icon").forEach(function (icon) {
+        icon.addEventListener("mousemove", function () {
             document.querySelector('#description').innerHTML = icon.getAttribute('alt');
             document.querySelector('#greeting').style.display = 'none';
             document.querySelector('#description').style.display = 'block';
         });
-        icon.addEventListener("mouseout", function() {
+        icon.addEventListener("mouseout", function () {
             document.querySelector('#description').style.display = 'none';
             document.querySelector('#greeting').style.display = 'block';
         });
     });
 
-    document.querySelectorAll(".direct").forEach(function(icon) {
-        icon.addEventListener("click", function() {
+    document.querySelectorAll(".direct").forEach(function (icon) {
+        icon.addEventListener("click", function () {
             gateway(parseInt(icon.getAttribute('id')), "_blank");
         });
     });
 
-    document.querySelectorAll(".modern_context_js_outer").forEach(function(item) {
-        item.addEventListener("mousemove", function(e) {
+    document.querySelectorAll(".modern_context_js_outer").forEach(function (item) {
+        item.addEventListener("mousemove", function (e) {
             getSchwifty(cardContainer, e.clientX, e.clientY);
             document.querySelector('#greeting').style.display = 'none';
             document.querySelector('#description').style.display = 'block';
         });
-        item.addEventListener("mouseout", function() {
+        item.addEventListener("mouseout", function () {
             getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
             document.querySelector('#description').style.display = 'none';
             document.querySelector('#greeting').style.display = 'block';
@@ -164,6 +164,10 @@ window.addEventListener('load', function() {
 function gateway(node, target) {
     switch (node) {
         case 1:
+            gtag('event', 'click', {
+                'event_category': 'mail'
+            });
+            navigator.clipboard.writeText("hello@jbbmb.com");
             SnackBar({
                 message: "Mail address copied to clipboard...&nbsp",
                 status: "info",
@@ -172,10 +176,6 @@ function gateway(node, target) {
                 timeout: 6000,
                 dismissible: false
             });
-            gtag('event', 'click', {
-                'event_category': 'mail'
-            });
-            navigator.clipboard.writeText("hello@jbbmb.com");
             break;
         case 3:
             gtag('event', 'click', {
@@ -208,16 +208,9 @@ function gateway(node, target) {
             window.open("https://music.apple.com/playlist/c-re/pl.u-6mo4lN4H4NWedB", target);
             break;
         case 8:
-            setTimeout(() => {
-                SnackBar({
-                    message: "Sorry, the requested content is not available!&nbsp",
-                    status: "error",
-                    position: "tr",
-                    fixed: true,
-                    timeout: 6000,
-                    dismissible: false
-                });
-            }, 5);
+            gtag('event', 'click', {
+                'event_category': 'photos'
+            });
             break;
         case 9:
             gtag('event', 'click', {
@@ -236,9 +229,10 @@ function gateway(node, target) {
                 'event_category': 'cvitae_pdf'
             });
             window.open("https://github.com/jbbmb/jbbmb.github.io/raw/main/static/pdf/Curriculum%20Vitae%20of%20João%20de%20Macedo%20Borges.pdf", target);
-            break;
-        case 200:
-            window.location.href = "https://stats.uptimerobot.com/8zGoWtX68J";
+            setTimeout(() => {
+                document.querySelector('#description').style.display = 'none';
+                document.querySelector('#greeting').style.display = 'block';
+            }, 500);
             break;
         case 404:
             setTimeout(() => {
@@ -284,11 +278,11 @@ function reload(node) {
 
 function getGreeting() {
     var goodX = [
-            [0, 5, "good night!"],
-            [6, 11, "good morning!"],
-            [12, 19, "good afternoon!"],
-            [20, 23, "good evening!"]
-        ],
+        [0, 5, "good night!"],
+        [6, 11, "good morning!"],
+        [12, 19, "good afternoon!"],
+        [20, 23, "good evening!"]
+    ],
         hr = new Date().getHours();
     for (var i = 0; i < goodX.length; i++) {
         if (hr >= goodX[i][0] && hr <= goodX[i][1]) {

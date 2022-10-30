@@ -216,7 +216,7 @@ function gateway(node, target) {
             gtag('event', 'click', {
                 'event_category': 'videos'
             });
-            window.open("https://www.youtube.com/channel/UCI5SHB_GdeKYgzO58DGMI2g", target);
+            window.open("https://www.youtube.com/@jbbmb", target);
             break;
         case 10:
             gtag('event', 'click', {

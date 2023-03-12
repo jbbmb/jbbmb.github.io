@@ -169,7 +169,7 @@ function gateway(node, target) {
             });
             navigator.clipboard.writeText("hello@jbbmb.com");
             SnackBar({
-                message: "Address copied to the clipboard  👍🏻&nbsp",
+                message: "Address copied to the clipboard  🤙🏻&nbsp",
                 status: "green",
                 position: "tr",
                 fixed: true,
@@ -233,11 +233,19 @@ function gateway(node, target) {
                 document.querySelector('#description').style.display = 'none';
                 document.querySelector('#greeting').style.display = 'block';
             }, 500);
+            SnackBar({
+                message: "Résumé downloaded successfully  👍🏻&nbsp",
+                status: "green",
+                position: "tr",
+                fixed: true,
+                timeout: 6000,
+                dismissible: false
+            });
             break;
         case 404:
             setTimeout(() => {
                 SnackBar({
-                    message: "The requested page was not found  👎🏻&nbsp",
+                    message: "The requested page was not found  👊🏻&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,
@@ -251,7 +259,7 @@ function gateway(node, target) {
         default:
             setTimeout(() => {
                 SnackBar({
-                    message: "Sorry, an internal error has occurred!&nbsp",
+                    message: "An internal error has occurred  👎🏻&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,
@@ -286,7 +294,7 @@ function getGreeting() {
         hr = new Date().getHours();
     for (var i = 0; i < goodX.length; i++) {
         if (hr >= goodX[i][0] && hr <= goodX[i][1]) {
-            console.log("Opening Web Inspector I see...");
+            console.log("So, we're opening Web Inspector now...?");
             return "Hello, ".concat(goodX[i][2]);
         }
     }

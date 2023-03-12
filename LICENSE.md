@@ -1,4 +1,4 @@
-## Copyright © 2021 João de Macedo Borges
+## Copyright © 2023 João de Macedo Borges
 ### All Rights Reserved where applicable.
 
 This software includes the following original work made free and public on HTML5UP: *Identity Template* and all of its components, used and/or re-used for this software, belong to their respective copyright owners.

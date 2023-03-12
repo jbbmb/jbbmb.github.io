@@ -219,13 +219,13 @@ body.is-preload:after {
 
 @media (prefers-color-scheme: dark) {
     html {
-        background-color: #121212;
+        background-color: #000000;
     }
     #main {
         background: #282828 !important;
     }
     #main .avatar img {
-        box-shadow: 0 0 0 1em #282828 !important;
+        box-shadow: 0 0 0 1.5em #282828 !important;
     }
     #greeting,
     #description,

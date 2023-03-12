@@ -35,7 +35,12 @@
 
         <section id="main">
             <header id="identity">
-                <span class="avatar"><img src="static/assets/avatar.jpg" alt="@JBBMB"/></span>
+                <span class="avatar">
+                    <picture>
+                        <source srcset="static/assets/favicons/avatar-touch-icon.jpg" media="(prefers-color-scheme:dark)">
+                        <img src="static/assets/avatar.jpg" alt="@JBBMB"/>
+                    </picture>
+                </span>
                 <img class="signature" src="static/assets/signature-xl.png" alt="João de Macedo Borges" />
                 <div>
                     <p id="greeting"></p>

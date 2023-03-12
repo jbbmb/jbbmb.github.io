@@ -226,7 +226,6 @@ body.is-preload:after {
     }
     #main .avatar img {
         box-shadow: 0 0 0 1em #282828 !important;
-        background-image: url("static/assets/favicons/avatar-touch-icon.jpg") !important;
     }
     #greeting,
     #description,

@@ -546,7 +546,7 @@ hr {
     top: 50%;
     left: -2.5em;
     width: calc(100% + 5em);
-    height: 4px;
+    height: 3.8px;
     z-index: -1;
     background: #fe9529;
     background: -webkit-linear-gradient(to right, #ffc500, #c21500);

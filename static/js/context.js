@@ -6,7 +6,7 @@ class Context {
         document.body.appendChild(this.context);
         this.add_contents(contents);
         document.querySelectorAll(target_selector).forEach((target) => {
-            target.addEventListener("click", (event) => {
+            target.addEventListener("contextmenu", (event) => {
                 if (this.context.style.display == 'block') {
                     document.querySelector('.contexted').classList.remove("hovered");
                     this.close();

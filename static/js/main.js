@@ -13,20 +13,12 @@ const phrases = [
         'and that thanks You for visiting.'
     ],
     contacts = [{
-            type: "item",
-            label: "Mail",
-            callback: () => {
-                gateway(1, "_blank");
-            }
-        },
-        {
-            type: "item",
-            label: "Telegram",
-            callback: () => {
-                gateway(3, "_blank");
-            }
+        type: "item",
+        label: "Privacy Policy",
+        callback: () => {
+            gateway(12, "_blank");
         }
-    ],
+    }, ],
     context = new Context(".contexted", contacts);
 
 
@@ -143,19 +135,6 @@ window.addEventListener('load', function() {
         });
     });
 
-    document.querySelectorAll(".modern_context_js_outer").forEach(function(item) {
-        item.addEventListener("mousemove", function(e) {
-            getSchwifty(cardContainer, e.clientX, e.clientY);
-            document.querySelector('#greeting').style.display = 'none';
-            document.querySelector('#description').style.display = 'block';
-        });
-        item.addEventListener("mouseout", function() {
-            getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
-            document.querySelector('#description').style.display = 'none';
-            document.querySelector('#greeting').style.display = 'block';
-        });
-    });
-
 });
 
 
@@ -230,17 +209,20 @@ function gateway(node, target) {
             });
             window.open("https://github.com/jbbmb/jbbmb.github.io/raw/main/static/pdf/Curriculum%20Vitae%20of%20João%20de%20Macedo%20Borges.pdf", target);
             setTimeout(() => {
+                SnackBar({
+                    message: "Résumé downloaded successfully  👍🏻&nbsp",
+                    status: "green",
+                    position: "tr",
+                    fixed: true,
+                    timeout: 6000,
+                    dismissible: false
+                });
                 document.querySelector('#description').style.display = 'none';
                 document.querySelector('#greeting').style.display = 'block';
             }, 500);
-            SnackBar({
-                message: "Résumé downloaded successfully  👍🏻&nbsp",
-                status: "green",
-                position: "tr",
-                fixed: true,
-                timeout: 6000,
-                dismissible: false
-            });
+            break;
+        case 12:
+            window.open("https://github.com/jbbmb/jbbmb.github.io#privacy-policy", target);
             break;
         case 404:
             setTimeout(() => {

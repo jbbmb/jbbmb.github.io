@@ -123,6 +123,11 @@ window.addEventListener('load', function() {
         document.querySelector('#greeting').style.display = 'block';
     });
 
+    document.querySelectorAll(".icon").forEach(function(item) {
+        item.addEventListener('contextmenu', event => event.stopPropagation());
+        item.addEventListener('contextmenu', event => event.preventDefault());
+    });
+
     document.addEventListener('contextmenu', event => event.preventDefault());
 
     document.querySelectorAll(".icon").forEach(function(icon) {

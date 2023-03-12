@@ -13,12 +13,20 @@ const phrases = [
         'and that thanks You for visiting.'
     ],
     contacts = [{
-        type: "item",
-        label: "Privacy Policy",
-        callback: () => {
-            gateway(12, "_blank");
-        }
-    }, ],
+            type: "item",
+            label: "Privacy Policy",
+            callback: () => {
+                gateway(12, "_blank");
+            }
+        },
+        {
+            type: "item",
+            label: "Version History",
+            callback: () => {
+                gateway(13, "_blank");
+            }
+        },
+    ],
     context = new Context(".contexted", contacts);
 
 
@@ -223,6 +231,9 @@ function gateway(node, target) {
             break;
         case 12:
             window.open("https://github.com/jbbmb/jbbmb.github.io#privacy-policy", target);
+            break;
+        case 13:
+            window.open("https://github.com/jbbmb/jbbmb.github.io/commits/main", target);
             break;
         case 404:
             setTimeout(() => {

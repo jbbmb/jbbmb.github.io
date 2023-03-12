@@ -410,12 +410,6 @@ hr {
     transition: var(--transition);
 }
 
-.contexted.hovered {
-    opacity: 1;
-    transform: scale(1.2);
-    transition: var(--transition);
-}
-
 .icon:active {
     opacity: 1;
     transform: scale(1.2);

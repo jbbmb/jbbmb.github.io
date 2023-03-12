@@ -169,8 +169,8 @@ function gateway(node, target) {
             });
             navigator.clipboard.writeText("hello@jbbmb.com");
             SnackBar({
-                message: "Address copied to the clipboard!&nbsp",
-                status: "info",
+                message: "Address copied to the clipboard  👍🏻&nbsp",
+                status: "green",
                 position: "tr",
                 fixed: true,
                 timeout: 6000,

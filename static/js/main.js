@@ -237,7 +237,7 @@ function gateway(node, target) {
         case 404:
             setTimeout(() => {
                 SnackBar({
-                    message: "Sorry, the requested page was not found!&nbsp",
+                    message: "The requested page was not found  👎🏻&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,

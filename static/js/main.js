@@ -3,14 +3,16 @@
 
 const phrases = [
         getGreeting(),
-        'Welcome to the virtual corner of',
-        'this male Homo Sapiens specimen',
-        'born early April of 1997 in Portugal',
-        'who is passionate about technology',
-        'prefers a nice gin tonic over beer',
-        'keeps changing his wallpapers',
-        'with the World on his bucket list',
-        'and that thanks You for visiting.'
+        'This is João’s virtual corner.',
+        'He thanks You for visiting.',
+        'He is a male Homo Sapiens specimen.',
+        'He is from and lives in Northern Portugal.',
+        'He was born in early April of 1997.',
+        'He is passionate about technology.',
+        'He drinks gin over beer.',
+        'He prefers cats over dogs.',
+        'He keeps changing his wallpapers.',
+        'But the World is on his bucket list.',
     ],
     contacts = [{
             type: "item",
@@ -123,7 +125,7 @@ window.addEventListener('load', function() {
         document.querySelector('#greeting').style.display = 'block';
     });
 
-    document.querySelectorAll(".icon").forEach(function(item) {
+    document.querySelectorAll("#main").forEach(function(item) {
         item.addEventListener('contextmenu', event => event.stopPropagation());
         item.addEventListener('contextmenu', event => event.preventDefault());
     });
@@ -161,13 +163,14 @@ function gateway(node, target) {
             });
             navigator.clipboard.writeText("hello@jbbmb.com");
             SnackBar({
-                message: "Address copied to the clipboard  🤙🏻&nbsp",
+                message: "Address copied too  🤙🏻&nbsp",
                 status: "green",
                 position: "tr",
                 fixed: true,
-                timeout: 6000,
+                timeout: 12000,
                 dismissible: false
             });
+            window.open("mailto:hello@jbbmb.com", target);
             break;
         case 3:
             gtag('event', 'click', {
@@ -243,7 +246,7 @@ function gateway(node, target) {
         case 404:
             setTimeout(() => {
                 SnackBar({
-                    message: "The requested page was not found  👊🏻&nbsp",
+                    message: "Requested page not found  👎🏻&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,
@@ -257,7 +260,7 @@ function gateway(node, target) {
         default:
             setTimeout(() => {
                 SnackBar({
-                    message: "An internal error has occurred  👎🏻&nbsp",
+                    message: "Internal error has occurred  👊🏻&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,
@@ -284,16 +287,16 @@ function reload(node) {
 
 function getGreeting() {
     var goodX = [
-            [0, 5, "good night!"],
-            [6, 11, "good morning!"],
-            [12, 19, "good afternoon!"],
-            [20, 23, "good evening!"]
+            [0, 5, "Good Night"],
+            [6, 11, "Good Morning"],
+            [12, 19, "Good Afternoon"],
+            [20, 23, "Good Evening"]
         ],
         hr = new Date().getHours();
     for (var i = 0; i < goodX.length; i++) {
         if (hr >= goodX[i][0] && hr <= goodX[i][1]) {
             console.log("So, we're opening Web Inspector now...?");
-            return "Hello, ".concat(goodX[i][2]);
+            return goodX[i][2] + " and Welcome!";
         }
     }
 }
@@ -355,6 +358,41 @@ class TextScramble {
     }
 }
 
+/** Google Analytics */
+
 function gtag() {
     dataLayer.push(arguments);
+}
+
+/** ShadowFlow based on codepen.io/wuh/pen/RxvLoO */
+
+$(function() {
+    $('.shadeflow').each(function() {
+        var el = $(this);
+        var elWidth = $(el).width();
+        var elHeight = $(el).height();
+        var elOffset = $(el).offset();
+        var viewportWidth = $(document).width();
+        var viewportHeight = $(document).height();
+        var elCentreX = elOffset.left + (elWidth / 2);
+        var elCentreY = elOffset.top + (elHeight / 2);
+        var elShadow = $(this).css('box-shadow');
+        var elShadowSplit = elShadow.split(' ');
+        var elShadowColor = [elShadowSplit[0], elShadowSplit[1], elShadowSplit[2]].join('');
+        var elShDpthX = parseInt(elShadowSplit[3].replace(/\D/g, ''));
+        var elShDpthY = parseInt(elShadowSplit[4].replace(/\D/g, ''));
+        $(window).on('mousemove', function(e) {
+            var offX = e.pageX - elCentreX;
+            var offY = e.pageY - elCentreY;
+            var newShDepthX = -Math.round(offX.map(0, viewportWidth / 2, 0, elShDpthX)) + 'px';
+            var newShDepthY = -Math.round(offY.map(0, viewportHeight / 2, 0, elShDpthY)) + 'px';
+            var newShadow = [newShDepthX, newShDepthY, elShadowSplit[5], elShadowColor];
+            $(el).css('box-shadow', newShadow.join(' '));
+        });
+    });
+
+});
+
+Number.prototype.map = function(in_min, in_max, out_min, out_max) {
+    return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

@@ -115,7 +115,7 @@ window.addEventListener('load', function() {
         var newShDepthX = Math.round(offX.map(0, viewportWidth / 2, 0, elShDpthX)) + 'px';
         var newShDepthY = Math.round(offY.map(0, viewportHeight / 2, 0, elShDpthY)) + 'px';
         var newShadow = [newShDepthX, newShDepthY, elShadowSplit[5], elShadowColor];
-        $(el).css('box-shadow', newShadow.join(' '));
+        el.style.setProperty('box-shadow', newShadow.join(' '));
     }
 
 

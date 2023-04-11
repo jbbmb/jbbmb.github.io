@@ -3,16 +3,16 @@
 
 const phrases = [
         getGreeting(),
-        'This is João’s virtual corner.',
-        'He thanks You for visiting.',
-        'He is a male Homo Sapiens specimen.',
-        'He is from and lives in Northern Portugal.',
-        'He was born in early April of 1997.',
-        'He is passionate about technology.',
-        'He drinks gin over beer.',
-        'He prefers cats over dogs.',
-        'He keeps changing his wallpapers.',
-        'But the World is on his bucket list.',
+        'This is João’s virtual corner',
+        'Thank You for visiting',
+        'Species: Homo Sapiens',
+        'Gender: Male',
+        'Birth: April 1997',
+        'Origin: Northern Portugal, Earth',
+        'Function: Develop technology',
+        'Directive: Leave a legacy',
+        'Prefers: iPhone, cats and gin',
+        'Use the buttons below to explore',
     ],
     contacts = [{
             type: "item",
@@ -77,7 +77,7 @@ window.addEventListener('load', function() {
     next();
 
 
-    /** Animates card with parallax... */
+    /** Animates card with parallax */
 
     const cardContainer = document.querySelector('#main');
     var cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.5 + cardContainer.getBoundingClientRect().top,
@@ -92,15 +92,56 @@ window.addEventListener('load', function() {
         el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 30}deg) rotateY(${((positionX - cardContainerWidth) / 30) * (-1)}deg) translateZ(-15px)`);
     }
 
+    function getShadowFlow(el, ev) {
+        var elWidth = $(el).width();
+        var elHeight = $(el).height();
+        var elOffset = $(el).offset();
+        var viewportWidth = $(document).width();
+        var viewportHeight = $(document).height();
+        var elCentreX = elOffset.left + (elWidth / 2);
+        var elCentreY = elOffset.top + (elHeight / 2);
+        var elShadow = el.css('box-shadow');
+        var elShadowSplit = elShadow.split(' ');
+        var elShadowColor = [elShadowSplit[0], elShadowSplit[1], elShadowSplit[2]].join('');
+        var elShDpthX = parseInt(elShadowSplit[3].replace(/\D/g, ''));
+        var elShDpthY = parseInt(elShadowSplit[4].replace(/\D/g, ''));
+        if (ev == null) {
+            var offX = 0;
+            var offY = 0;
+        } else {
+            var offX = ev.pageX - elCentreX;
+            var offY = ev.pageY - elCentreY;
+        }
+        var newShDepthX = Math.round(offX.map(0, viewportWidth / 2, 0, elShDpthX)) + 'px';
+        var newShDepthY = Math.round(offY.map(0, viewportHeight / 2, 0, elShDpthY)) + 'px';
+        var newShadow = [newShDepthX, newShDepthY, elShadowSplit[5], elShadowColor];
+        $(el).css('box-shadow', newShadow.join(' '));
+    }
+
 
     /** Activates input event listeners */
 
     document.querySelectorAll("#main").forEach(function(item) {
         item.addEventListener("mousemove", function(e) {
             getSchwifty(cardContainer, e.clientX, e.clientY);
+            getShadowFlow(cardContainer, e);
         });
         item.addEventListener("mouseout", function() {
             getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+            getShadowFlow(cardContainer, null);
+            document.querySelector('#description').style.display = 'none';
+            document.querySelector('#greeting').style.display = 'block';
+        });
+    });
+
+    document.querySelectorAll(".contexted").forEach(function(item) {
+        item.addEventListener("mousemove", function(e) {
+            getSchwifty(cardContainer, e.clientX, e.clientY);
+            getShadowFlow(cardContainer, e);
+        });
+        item.addEventListener("mouseout", function() {
+            getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+            getShadowFlow(cardContainer, null);
             document.querySelector('#description').style.display = 'none';
             document.querySelector('#greeting').style.display = 'block';
         });
@@ -170,7 +211,7 @@ function gateway(node, target) {
                 timeout: 12000,
                 dismissible: false
             });
-            window.open("mailto:hello@jbbmb.com", target);
+            window.open("mailto:hello@jbbmb.com", "_self");
             break;
         case 3:
             gtag('event', 'click', {
@@ -260,7 +301,7 @@ function gateway(node, target) {
         default:
             setTimeout(() => {
                 SnackBar({
-                    message: "Internal error has occurred  👊🏻&nbsp",
+                    message: "Internal error occurred  👊🏻&nbsp",
                     status: "error",
                     position: "tr",
                     fixed: true,
@@ -287,16 +328,16 @@ function reload(node) {
 
 function getGreeting() {
     var goodX = [
-            [0, 5, "Good Night"],
-            [6, 11, "Good Morning"],
-            [12, 19, "Good Afternoon"],
-            [20, 23, "Good Evening"]
+            [0, 5, "Good night"],
+            [6, 11, "Good morning"],
+            [12, 19, "Good afternoon"],
+            [20, 23, "Good evening"]
         ],
         hr = new Date().getHours();
     for (var i = 0; i < goodX.length; i++) {
         if (hr >= goodX[i][0] && hr <= goodX[i][1]) {
             console.log("So, we're opening Web Inspector now...?");
-            return goodX[i][2] + " and Welcome!";
+            return goodX[i][2] + " and Welcome";
         }
     }
 }
@@ -358,40 +399,15 @@ class TextScramble {
     }
 }
 
+
 /** Google Analytics */
 
 function gtag() {
     dataLayer.push(arguments);
 }
 
-/** ShadowFlow based on codepen.io/wuh/pen/RxvLoO */
 
-$(function() {
-    $('.shadeflow').each(function() {
-        var el = $(this);
-        var elWidth = $(el).width();
-        var elHeight = $(el).height();
-        var elOffset = $(el).offset();
-        var viewportWidth = $(document).width();
-        var viewportHeight = $(document).height();
-        var elCentreX = elOffset.left + (elWidth / 2);
-        var elCentreY = elOffset.top + (elHeight / 2);
-        var elShadow = $(this).css('box-shadow');
-        var elShadowSplit = elShadow.split(' ');
-        var elShadowColor = [elShadowSplit[0], elShadowSplit[1], elShadowSplit[2]].join('');
-        var elShDpthX = parseInt(elShadowSplit[3].replace(/\D/g, ''));
-        var elShDpthY = parseInt(elShadowSplit[4].replace(/\D/g, ''));
-        $(window).on('mousemove', function(e) {
-            var offX = e.pageX - elCentreX;
-            var offY = e.pageY - elCentreY;
-            var newShDepthX = -Math.round(offX.map(0, viewportWidth / 2, 0, elShDpthX)) + 'px';
-            var newShDepthY = -Math.round(offY.map(0, viewportHeight / 2, 0, elShDpthY)) + 'px';
-            var newShadow = [newShDepthX, newShDepthY, elShadowSplit[5], elShadowColor];
-            $(el).css('box-shadow', newShadow.join(' '));
-        });
-    });
-
-});
+/** ShadowFlow helper, from codepen.io/wuh/pen/RxvLoO */
 
 Number.prototype.map = function(in_min, in_max, out_min, out_max) {
     return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;

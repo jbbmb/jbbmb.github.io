@@ -2,7 +2,7 @@
 class Context {
     constructor(target_selector, contents = []) {
         this.context = document.createElement("div");
-        this.context.className = "modern_context_js_outer shadowflow";
+        this.context.className = "modern_context_js_outer";
         document.body.appendChild(this.context);
         this.add_contents(contents);
         document.querySelectorAll(target_selector).forEach((target) => {

@@ -508,12 +508,13 @@ hr {
     text-align: center;
     width: 26em;
     z-index: 1;
-    box-shadow: 20px 20px 40px #757575;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
     transition: var(--transition);
     will-change: transform;
 }
 
 #main:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
     transition: var(--transition);
 }
 
@@ -845,7 +846,12 @@ body.is-ie #wrapper {
 }
 
 .js-snackbar--show {
-    box-shadow: 20px 20px 40px #757575;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+
+.js-snackbar--show:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11);
     transition: var(--transition);
 }
 
@@ -882,7 +888,7 @@ body.is-ie #wrapper {
     background: rgba(255, 255, 255, 0.7);
     position: absolute;
     border-radius: 12px;
-    box-shadow: 20px 20px 40px #757575;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
     padding: 0.5em 0;
     display: none;
     overflow: hidden;
@@ -901,6 +907,11 @@ body.is-ie #wrapper {
     -webkit-user-drag: none;
     -ms-user-drag: none;
     user-drag: none;
+}
+
+.modern_context_js_outer:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11);
+    transition: var(--transition);
 }
 
 .modern_context_js_outer hr {

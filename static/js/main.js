@@ -240,6 +240,18 @@ function gateway(node, target) {
         case 13:
             window.open("https://github.com/jbbmb/jbbmb.github.io/commits/main", target);
             break;
+        case 14:
+            gtag('event', 'click', {
+                'event_category': 'bluesky'
+            });
+            window.open("https://bsky.app/profile/jbbmb.com", target);
+            break;
+        case 15:
+            gtag('event', 'click', {
+                'event_category': 'bereal'
+            });
+            window.open("https://bere.al/jbbmb", target);
+            break;
         case 404:
             setTimeout(() => {
                 SnackBar({

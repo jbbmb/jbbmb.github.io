@@ -444,7 +444,7 @@ hr {
     padding: 0.25em 0.25em;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 430px) {
     .icons li {
         padding: 0em 0em;
     }

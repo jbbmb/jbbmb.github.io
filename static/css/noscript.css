@@ -1,33 +1,15 @@
 /* Basic */
 
+video,
+#wrapper,
 body:after {
     display: none !important;
 }
 
-footer {
-    opacity: 25% !important;
-}
 
-
-/* Main */
-
-#main {
-    -moz-transform: none !important;
-    -webkit-transform: none !important;
-    -ms-transform: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    pointer-events: none !important;
-}
-
-#main .avatar:before {
-    background: #757575 !important;
-    opacity: 25% !important;
-}
-
-
-/* JS warning */
+/* Warning */
 
 #greeting::before {
-    content: 'Enable JavaScript to use this website!' !important;
+    content: 'Enable JavaScript to continue.' !important;
+    opacity: 0.9 !important;
 }

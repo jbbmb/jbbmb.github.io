@@ -120,8 +120,9 @@ window.addEventListener('load', function() {
 
     function getSchwifty(el, positionX, positionY) {
         el.style.setProperty('transform', `rotateX(${(positionY - cardContainerHeight) / 30}deg) rotateY(${((positionX - cardContainerWidth) / 30) * (-1)}deg) translateZ(-15px)`);
-    }    
-    getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+    }
+
+    getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight); // initial adjust
 
 
     /** Activates input event listeners */
@@ -141,12 +142,8 @@ window.addEventListener('load', function() {
         e.preventDefault();
         const touch = e.targetTouches[0];
         if (touch) {
-            getSchwifty(cardContainer, touch.pageX, touch.pageY);
+            getSchwifty(cardContainer, touch.clientX, touch.clientY);
         }
-    });
-
-    document.querySelector('#wrapper').addEventListener('touchmove', function(e) {
-        e.preventDefault();
     });
 
     document.addEventListener('touchend', function(e) {

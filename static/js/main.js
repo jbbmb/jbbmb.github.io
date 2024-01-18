@@ -360,7 +360,8 @@ let scene = new ScrollMagic.Scene({
         triggerHook: 0
     })
     .setPin(intro)
-    .addTo(controller);
+    .addTo(controller)
+    document.getElementById("cover").removeAttribute("autoplay");
 
 // Text Animation
 const textAnim = TweenMax.fromTo(text, 3, { opacity: 0.9 }, { opacity: 0 });

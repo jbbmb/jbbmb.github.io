@@ -78,16 +78,16 @@ window.addEventListener('load', function() {
     /** Adds greeting to intro */
 
     var goodX = [
-        [0, 5, "Good night.<br><bdi>Just scroll.</bdi>"],
-        [6, 11, "Good morning.<br><bdi>Just scroll.</bdi>"],
-        [12, 19, "Good afternoon.<br><bdi>Just scroll.</bdi>"],
-        [20, 23, "Good evening.<br><bdi>Just scroll.</bdi>"]
+        [0, 5, "Good night,<br><bdi>just scroll.</bdi>"],
+        [6, 11, "Good morning,<br><bdi>just scroll.</bdi>"],
+        [12, 18, "Good afternoon,<br><bdi>just scroll.</bdi>"],
+        [19, 23, "Good evening,<br><bdi>just scroll.</bdi>"]
     ],
     hr = new Date().getHours();
     for (var i = 0; i < goodX.length; i++) {
         if (hr >= goodX[i][0] && hr <= goodX[i][1]) {
-            console.log("So, we're opening Web Inspector now...?");
             document.getElementById('greeting').innerHTML = (goodX[i][2]);
+            console.log("What do you want to inspect exactly? 🤔");
             break;
         }
     }
@@ -111,11 +111,31 @@ window.addEventListener('load', function() {
 
     const cardContainer = document.querySelector('#main');
     var cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.88,
-        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
+        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left,
+        resizeFlag = false;
 
     window.addEventListener('resize', function() {
-        cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.88;
-        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
+        if (!resizeFlag) {
+            resizeFlag = true;
+            setTimeout(() => {
+                SnackBar({
+                    message: "&nbspRefresh to fix resizing issues!&nbsp",
+                    status: "error",
+                    position: "tl",
+                    fixed: true,
+                    timeout: 1,
+                    dismissible: false
+                }); // workaround for Safari bug where first SnackBar is not blurred
+                SnackBar({
+                    message: "&nbspRefresh to fix resizing issues!&nbsp",
+                    status: "error",
+                    position: "tl",
+                    fixed: true,
+                    timeout: 7000,
+                    dismissible: false
+                });
+            }, 500);
+        }
     }, true);
 
     function getSchwifty(el, positionX, positionY) {
@@ -136,14 +156,13 @@ window.addEventListener('load', function() {
             document.querySelector('#description').style.display = 'none';
             document.querySelector('#punchline').style.display = 'block';
         });
-    });
-
-    document.querySelector('#main').addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        const touch = e.targetTouches[0];
-        if (touch) {
-            getSchwifty(cardContainer, touch.clientX, touch.clientY);
-        }
+        item.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            const touch = e.targetTouches[0];
+            if (touch) {
+                getSchwifty(cardContainer, touch.clientX, touch.clientY);
+            }
+        });
     });
 
     document.addEventListener('touchend', function(e) {
@@ -152,13 +171,6 @@ window.addEventListener('load', function() {
         document.querySelector('#description').style.display = 'none';
         document.querySelector('#punchline').style.display = 'block';
     });
-
-    document.querySelectorAll(".icon").forEach(function(item) {
-        item.addEventListener('contextmenu', event => event.stopPropagation());
-        item.addEventListener('contextmenu', event => event.preventDefault());
-    });
-
-    document.addEventListener('contextmenu', event => event.preventDefault());
 
     document.querySelectorAll(".icon").forEach(function(icon) {
         icon.addEventListener("mousemove", function() {
@@ -170,13 +182,32 @@ window.addEventListener('load', function() {
             document.querySelector('#description').style.display = 'none';
             document.querySelector('#punchline').style.display = 'block';
         });
+        icon.addEventListener("touchend", function() {
+            document.querySelector('#description').style.display = 'none';
+            document.querySelector('#punchline').style.display = 'block';
+        });
+        icon.addEventListener('contextmenu', event => event.stopPropagation());
+        icon.addEventListener('contextmenu', event => event.preventDefault());
     });
 
     document.querySelectorAll(".direct").forEach(function(icon) {
-        icon.addEventListener("click", function() {
+        icon.addEventListener("click", function(e) {
             gateway(parseInt(icon.getAttribute('id')), "_blank");
+            if(e instanceof PointerEvent){
+                if(e.pointerType === "touch"){
+                    getSchwifty(cardContainer, cardContainerWidth, cardContainerHeight);
+                    document.querySelector('#description').style.display = 'none';
+                    document.querySelector('#punchline').style.display = 'block';
+                }
+            }
         });
     });
+
+    document.addEventListener('long-press', function(e) { 
+        context.open;
+    });
+
+    document.addEventListener('contextmenu', event => event.preventDefault());
 
 });
 
@@ -196,10 +227,18 @@ function gateway(node, target) {
                     status: "green",
                     position: "tl",
                     fixed: true,
+                    timeout: 1,
+                    dismissible: false
+                }); // workaround for Safari bug where first SnackBar is not blurred
+                SnackBar({
+                    message: "&nbspAddress copied to the clipboard.&nbsp",
+                    status: "green",
+                    position: "tl",
+                    fixed: true,
                     timeout: 7000,
                     dismissible: false
                 });
-              }, 0);
+              }, 50);
             break;
         case 2:
             gtag('event', 'click', {
@@ -266,6 +305,14 @@ function gateway(node, target) {
                     status: "green",
                     position: "tl",
                     fixed: true,
+                    timeout: 1,
+                    dismissible: false
+                }); // workaround for Safari bug where first SnackBar is not blurred
+                SnackBar({
+                    message: "&nbspFile downloaded successfully.&nbsp",
+                    status: "green",
+                    position: "tl",
+                    fixed: true,
                     timeout: 7000,
                     dismissible: false
                 });
@@ -285,7 +332,15 @@ function gateway(node, target) {
         case 404:
             setTimeout(() => {
                 SnackBar({
-                    message: "&nbspThe requested page was not found.&nbsp",
+                    message: "&nbspThe requested page was not found!&nbsp",
+                    status: "error",
+                    position: "tl",
+                    fixed: true,
+                    timeout: 1,
+                    dismissible: false
+                }); // workaround for Safari bug where first SnackBar is not blurred
+                SnackBar({
+                    message: "&nbspThe requested page was not found!&nbsp",
                     status: "error",
                     position: "tl",
                     fixed: true,
@@ -299,7 +354,15 @@ function gateway(node, target) {
         default:
             setTimeout(() => {
                 SnackBar({
-                    message: "&nbspAn internal error has occurred.&nbsp",
+                    message: "&nbspAn internal error has occurred!&nbsp",
+                    status: "error",
+                    position: "tl",
+                    fixed: true,
+                    timeout: 1,
+                    dismissible: false
+                }); // workaround for Safari bug where first SnackBar is not blurred
+                SnackBar({
+                    message: "&nbspAn internal error has occurred!&nbsp",
                     status: "error",
                     position: "tl",
                     fixed: true,

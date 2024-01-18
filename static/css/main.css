@@ -182,6 +182,9 @@ body {
 
 .intro {
     height: 100vh;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
@@ -343,7 +346,7 @@ h6 {
         font-size: 1.65em;
     }
     #main {
-        padding: 2em 1em 1em 1em;
+        padding: 3em 1.5em 1.5em 1.5em !important;
         width: 100%;
     }
     body,
@@ -363,15 +366,24 @@ h6 {
     textarea,
     .js-snackbar,
     .modern_context_js_outer .context_item {
-        font-size: 9pt !important;
+        font-size: 10pt !important;
         line-height: 1.5 !important;
     }
     #wrapper {
         padding: 0.75em;
     }
+}
+
+@media screen and (max-width: 380px) {
+    body,
+    input,
+    select,
+    textarea,
+    .js-snackbar,
+    .modern_context_js_outer .context_item {
+        font-size: 9pt !important;
+    }
     .icons li {
-        width: 3.45em;
-        height: 3.45em;
         padding: 0em 0em !important;
     }
 }
@@ -405,18 +417,23 @@ hr {
     margin: 0 auto;
     width: 75%;
     transition: var(--transition);
+    will-change: scale;
     z-index: 2;
 }
 
-.icon:hover {
-    transform: scale(1.4);
-    transition: var(--transition);
-    z-index: 3;
-}
+@media (hover:hover) {
+    .icon:hover {
+        transform: scale(1.4);
+        transition: var(--transition);
+        will-change: scale;
+        z-index: 3;
+    }
+ }
 
 .icon:active {
     transform: scale(1.2);
     transition: var(--transition);
+    will-change: scale;
     z-index: 4;
 }
 
@@ -540,17 +557,20 @@ hr {
     display: block;
     cursor: pointer;
     transition: var(--transition);
+    will-change: scale;
     z-index: 2;
 }
 
 #footer bdi:hover {
     transform: scale(1.4) translateY(-10px);
     transition: var(--transition);
+    will-change: scale;
 }
 
 #footer bdi:active {
     transform: scale(1.2) translateY(-15px);
     transition: var(--transition);
+    will-change: scale;
 }
 
 /* Wrapper */
@@ -688,20 +708,11 @@ body.is-ie #wrapper {
     display: block;
 }
 
-.js-snackbar__status.js-snackbar--success {
-    background-color: #4caf50;
-}
-
-.js-snackbar__status.js-snackbar--warning {
-    background-color: #ff9800;
-}
-
-.js-snackbar__status.js-snackbar--danger {
-    background-color: #b90909;
-}
-
+.js-snackbar__status.js-snackbar--success,
+.js-snackbar__status.js-snackbar--warning,
+.js-snackbar__status.js-snackbar--danger,
 .js-snackbar__status.js-snackbar--info {
-    background-color: #2196f3;
+    background-color: #fe9529;
 }
 
 .js-snackbar__action {
@@ -737,16 +748,19 @@ body.is-ie #wrapper {
     user-select: none;
     color: #000000;
     transition: var(--transition);
+    will-change: scale;
 }
 
 .js-snackbar__close:hover {
     transform: scale(1.4);
     transition: var(--transition);
+    will-change: scale;
 }
 
 .js-snackbar__close:active {
     transform: scale(1.2);
     transition: var(--transition);
+    will-change: scale;
 }
 
 
@@ -820,6 +834,7 @@ body.is-ie #wrapper {
     opacity: 1;
     transform: scale(0.9);
     transition: var(--transition);
+    will-change: scale;
 }
 
 .contexted,

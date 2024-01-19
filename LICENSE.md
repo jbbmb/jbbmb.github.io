@@ -5,11 +5,11 @@ This software includes original work made free and public on HTML5UP: *Identity 
 
 This software includes original work made free and public on CodePen: The copyright for the card parallax effect and all of its components, used and/or re-used for this software, belong to Louis Chenais; The copyright for the text scramble effect and all of its components, used and/or re-used for this software, belong to Justin Windle.
 
-This software includes original work made free and public by DevelopedByEd, via an MIT license. The copyright for *airpadpro* video animation and all of its components, used and/or re-used for this software, belong to their respective owners. *ScrollMagic*, *TweenMax* and *GSAP* copyrights fully belong to GreenSock Inc.
+This software includes original work made free and public by DevelopedByEd, via an MIT license. The copyright for *AirPad Pro* video animation and all of its components, used and/or re-used for this software, belong to their respective owners. *ScrollMagic*, *TweenMax* and *GSAP* copyrights fully belong to GreenSock Inc.
 
-This software includes original work made free and public by Robot-Inventor, via an MIT license. The copyright for *modern_context* and all of its components, used and/or re-used for this software, belong to their respective owners.
+This software includes original work made free and public by Robot-Inventor, via an MIT license. The copyright for *Modern Context* and all of its components, used and/or re-used for this software, belong to their respective owners.
 
-This software includes original work made free and public by Michael Mickelson, via an MIT license. The copyright for *js-snackbar* and all of its components, used and/or re-used for this software, belong to their respective owners.
+This software includes original work made free and public by Michael Mickelson, via an MIT license. The copyright for *SnackBar* and all of its components, used and/or re-used for this software, belong to their respective owners.
 
 This software includes original work made free and public by Rasmus Andersson, via an MIT license. The copyright for the *Inter* typeface and all of its components, used and/or re-used for this software, belong to their respective owners.
 

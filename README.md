@@ -9,7 +9,3 @@ You have the right to request the complete deletion of the data collected throug
 
 ### Changes to this Privacy Policy
 jbbmb.com has the discretion to update this Policy at any time. You acknowledge and agree that it is your responsibility to review this document periodically and become aware of any modifications.
-
----
-
-###### This project got a lot of love and support from [Mário Matias](https://www.linkedin.com/in/jmamatias), [Francisco Araújo](https://www.linkedin.com/in/franciscoeparaujo), [Miguel Martins](https://instagram.com/miguelmartinsmm) and [Pedro Mouta](https://www.linkedin.com/in/pedro-mouta-52080124a/).

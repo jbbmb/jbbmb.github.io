@@ -10,6 +10,12 @@ body:after {
 /* Warning */
 
 #greeting::before {
-    content: 'Enable JavaScript to continue.' !important;
+    content: 'Enable JavaScript\00000Ato continue.' !important;
+    white-space: pre;
+}
+
+#greeting {
+    margin-block: 0;
+    color: #bebebe;
     opacity: 0.9 !important;
 }

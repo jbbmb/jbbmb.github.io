@@ -111,31 +111,11 @@ window.addEventListener('load', function() {
 
     const cardContainer = document.querySelector('#main');
     var cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.88,
-        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left,
-        resizeFlag = false;
+        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
 
     window.addEventListener('resize', function() {
-        if (!resizeFlag) {
-            resizeFlag = true;
-            setTimeout(() => {
-                SnackBar({
-                    message: "&nbspRefresh to fix resizing issues!&nbsp",
-                    status: "error",
-                    position: "tl",
-                    fixed: true,
-                    timeout: 1,
-                    dismissible: false
-                }); // workaround for Safari bug where first SnackBar is not blurred
-                SnackBar({
-                    message: "&nbspRefresh to fix resizing issues!&nbsp",
-                    status: "error",
-                    position: "tl",
-                    fixed: true,
-                    timeout: 7000,
-                    dismissible: false
-                });
-            }, 500);
-        }
+        cardContainerHeight = cardContainer.getBoundingClientRect().height * 0.88;
+        cardContainerWidth = cardContainer.getBoundingClientRect().width * 0.5 + cardContainer.getBoundingClientRect().left;
     }, true);
 
     function getSchwifty(el, positionX, positionY) {

@@ -222,9 +222,9 @@ function gateway(node, target) {
             break;
         case 2:
             gtag('event', 'click', {
-                'event_category': 'telegram'
+                'event_category': 'signal'
             });
-            window.open("https://telegram.me/jbbmb", target);
+            window.open("https://signal.me/#eu/46U6_AJHUNy5TpatMhcmxqbUI0GXcCfwSNxv253GjV_PRLwnw11DDbi0XXQY2Qxg", target);
             break;
         case 3:
             gtag('event', 'click', {

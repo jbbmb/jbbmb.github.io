@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://jbbmb.com/static/assets/mockup.png"/>
+</p>
+
 ## Privacy Policy
 This document outlines the manner in which jbbmb.com collects, uses, maintains and discloses information collected from its users.
 

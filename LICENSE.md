@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://jbbmb.com/static/assets/mockup.png"/>
+</p>
+
 ## Copyright © 2024 João de Macedo Borges
 ### All Rights Reserved where applicable.
 

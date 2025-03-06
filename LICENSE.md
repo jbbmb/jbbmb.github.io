@@ -29,4 +29,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-###### This project got a lot of love and support from [Mário Matias](https://www.linkedin.com/in/jmamatias), [Francisco Araújo](https://www.linkedin.com/in/franciscoeparaujo), [Miguel Martins](https://instagram.com/miguelmartinsmm) and [Pedro Mouta](https://www.linkedin.com/in/pedro-mouta-52080124a/).
+###### This project got a lot of love and support from [Mário Matias](https://www.linkedin.com/in/jmamatias), [Gonçalo Fonseca](https://www.linkedin.com/in/ogoncalofonseca), [Francisco Araújo](https://www.linkedin.com/in/franciscoeparaujo), [Miguel Martins](https://instagram.com/miguelmartinsmm) and [Pedro Mouta](https://www.linkedin.com/in/pedro-mouta-52080124a/).
